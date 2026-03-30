@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bifrost Daily — 跨端开发每日精选</title>
+<style>
+:root{
+  --bg:#F4EFE4;--card:#FDFAF5;--hdr:#1A1A1A;
+  --txt:#222;--muted:#777;--border:#D9CEBC;
+  --accent:#2D5F8A;--accent-lt:#EBF3FB;
+  --warn-bg:#FFFBEB;--warn-border:#F59E0B;--warn-txt:#92400E;
+  --alert-bg:#FEF2F2;--alert-border:#EF4444;--alert-txt:#991B1B;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);font-family:'Georgia','Songti SC',serif;color:var(--txt);min-height:100vh}
+a{color:inherit;text-decoration:none}
+
+/* MASTHEAD */
+.masthead{background:var(--hdr);color:#fff;text-align:center;padding:18px 24px 12px}
+.eyebrow{font-size:10px;letter-spacing:5px;text-transform:uppercase;opacity:.45;margin-bottom:5px;font-family:Arial,sans-serif}
+.site-name{font-size:13px;letter-spacing:3px;text-transform:uppercase;font-family:Arial,sans-serif;font-weight:600;opacity:.8;margin-bottom:14px}
+.date-nav{display:flex;align-items:center;justify-content:center;gap:28px}
+.current-date{font-size:30px;font-weight:bold;letter-spacing:3px}
+.nav-btn{color:rgba(255,255,255,.4);font-size:12px;font-family:Arial,sans-serif;cursor:pointer;padding:5px 10px;border-radius:3px;transition:.15s;user-select:none;min-width:120px}
+.nav-btn.left{text-align:right}
+.nav-btn.right{text-align:left}
+.nav-btn:hover{background:rgba(255,255,255,.1);color:#fff}
+.nav-btn.off{opacity:.15;pointer-events:none}
+
+/* TABS */
+.tabs{background:#252525;display:flex;justify-content:center;border-top:1px solid #333}
+.tabs button{background:none;border:none;color:rgba(255,255,255,.4);padding:9px 22px;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;font-family:Arial,sans-serif;border-bottom:2px solid transparent;transition:.15s}
+.tabs button.active{color:#fff;border-bottom-color:#4A90D9}
+
+/* LAYOUT */
+.wrap{max-width:980px;margin:0 auto;padding:36px 18px 60px}
+
+/* SECTION RULE */
+.sec-rule{display:flex;align-items:baseline;gap:10px;border-bottom:2.5px solid var(--txt);padding-bottom:7px;margin-bottom:22px;margin-top:36px}
+.sec-rule:first-child{margin-top:0}
+.sec-rule h2{font-size:12px;letter-spacing:2.5px;text-transform:uppercase;font-family:Arial,sans-serif;font-weight:700}
+.sec-rule .sec-meta{font-size:11px;color:var(--muted);font-family:Arial,sans-serif;margin-left:auto}
+
+/* ANOMALY ALERTS */
+.alert-box{border-left:3px solid var(--warn-border);background:var(--warn-bg);padding:10px 14px;border-radius:0 3px 3px 0;margin-bottom:18px;font-size:12px;font-family:Arial,sans-serif;color:var(--warn-txt);line-height:1.6}
+.alert-box.critical{border-color:var(--alert-border);background:var(--alert-bg);color:var(--alert-txt)}
+.alert-box strong{font-weight:700}
+
+/* DISCUSSIONS — newspaper columns */
+.disc-cols{column-count:2;column-gap:24px;margin-bottom:8px}
+.disc-card{background:var(--card);border:1px solid var(--border);border-radius:3px;padding:14px 16px;margin-bottom:18px;break-inside:avoid}
+.disc-src{display:inline-flex;align-items:center;gap:4px;font-size:9px;font-family:Arial,sans-serif;font-weight:700;letter-spacing:.8px;padding:2px 7px;border-radius:2px;margin-bottom:8px;text-transform:uppercase}
+.src-twitter{background:#E8F4FD;color:#1A8CD8}
+.src-zhihu{background:#E3F2FD;color:#0066CC}
+.src-juejin{background:#FFF3E0;color:#CC6600}
+.src-weibo{background:#FFEBEE;color:#D02129}
+.src-github{background:#F0F0F0;color:#333}
+.src-weixin{background:#E8F5E9;color:#07C160}
+.src-infoq{background:#F3E5F5;color:#6A1B9A}
+.disc-author{font-weight:bold;font-size:13px;margin-bottom:5px}
+.disc-body{font-size:13px;line-height:1.7;color:#333}
+.disc-footer{display:flex;align-items:center;gap:8px;margin-top:9px}
+.disc-link{font-size:11px;font-family:Arial,sans-serif;color:var(--accent)}
+.disc-link:hover{text-decoration:underline}
+.link-type{font-size:9px;font-family:Arial,sans-serif;padding:1px 5px;border-radius:2px;font-weight:700}
+.link-exact{background:#D4EDDA;color:#155724}
+.link-approx{background:#FFF3CD;color:#856404}
+
+/* ARTICLES */
+.art-list{display:flex;flex-direction:column;gap:14px;margin-bottom:8px}
+.art-card{background:var(--card);border:1px solid var(--border);border-radius:3px;padding:16px 20px;display:flex;gap:14px;align-items:flex-start}
+.art-card.flagged{border-left:3px solid var(--warn-border)}
+.art-num{font-size:22px;font-weight:bold;color:#CCC;min-width:28px;text-align:right;line-height:1;padding-top:3px;font-family:Georgia,serif}
+.art-body{flex:1;min-width:0}
+.art-toprow{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:7px}
+
+/* Tech tags */
+.tag{font-size:9px;font-weight:700;padding:2px 7px;border-radius:2px;letter-spacing:.5px;font-family:Arial,sans-serif;text-transform:uppercase}
+.tag-kmp{background:#E8F5E9;color:#2E7D32}
+.tag-cmp{background:#E0F2F1;color:#00695C}
+.tag-flutter{background:#E3F2FD;color:#1565C0}
+.tag-rn{background:#FFF3E0;color:#E65100}
+.tag-hmos{background:#F3E5F5;color:#6A1B9A}
+.tag-kotlin{background:#EDE7F6;color:#4527A0}
+.tag-misc{background:#EEEEEE;color:#555}
+
+/* Content-type badge — neutral */
+.ctype{font-size:9px;padding:2px 7px;border-radius:2px;font-family:Arial,sans-serif;font-weight:600;border:1px solid}
+.ct-official{background:#EBF3FB;color:#1A5276;border-color:#AED6F1}
+.ct-analysis{background:#F9F0FF;color:#5B2C8D;border-color:#D7BDE2}
+.ct-practice{background:#F0FFF4;color:#1E8449;border-color:#A9DFBF}
+.ct-trend{background:#FFF9E6;color:#7D6608;border-color:#F9E79F}
+.ct-tutorial{background:#FEF9E7;color:#9A7D0A;border-color:#FAD7A0}
+.ct-community{background:#FDF2F8;color:#7D3C98;border-color:#E8DAEF}
+
+/* Relevance stars */
+.rel{font-size:11px;color:#999;letter-spacing:-1px}
+.rel .on{color:#F59E0B}
+
+.art-title{font-size:15px;font-weight:bold;line-height:1.45;margin-bottom:6px}
+.art-title a:hover{color:var(--accent)}
+.art-summary{font-size:13px;color:#4A4A4A;line-height:1.7;margin-bottom:9px}
+.art-flag{font-size:11px;font-family:Arial,sans-serif;color:var(--warn-txt);background:var(--warn-bg);border:1px solid var(--warn-border);border-radius:2px;padding:3px 8px;margin-bottom:8px;display:inline-block}
+.art-meta{display:flex;align-items:center;gap:12px;font-size:11px;color:var(--muted);font-family:Arial,sans-serif;flex-wrap:wrap}
+.art-meta .src{font-weight:700;color:#555}
+.art-meta .date-tag{background:#F5F5F5;padding:1px 6px;border-radius:2px}
+.art-meta .read{margin-left:auto;color:var(--accent);font-weight:600}
+.art-meta .read:hover{text-decoration:underline}
+.link-note{font-size:10px;font-family:Arial,sans-serif;padding:1px 5px;border-radius:2px;font-weight:600}
+.ln-exact{background:#D4EDDA;color:#155724}
+.ln-approx{background:#FFF3CD;color:#856404}
+
+/* ARCHIVE */
+.arch-top{text-align:center;margin-bottom:28px}
+.arch-top h2{font-size:20px;margin-bottom:4px}
+.arch-top p{font-size:12px;color:var(--muted);font-family:Arial,sans-serif}
+.arch-list-hdr{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-family:Arial,sans-serif;margin-bottom:12px;padding-bottom:5px;border-bottom:1px solid var(--border)}
+.arch-row{display:flex;align-items:center;gap:14px;padding:11px 10px;border-bottom:1px solid var(--border);cursor:pointer;border-radius:3px;transition:.12s}
+.arch-row:hover{background:var(--accent-lt)}
+.arch-row .d{font-size:13px;font-weight:700;color:var(--accent);min-width:100px;font-family:Arial,sans-serif}
+.arch-row .prev{font-size:12px;color:var(--muted);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.arch-row .cnt{font-size:10px;background:var(--accent-lt);color:var(--accent);padding:2px 9px;border-radius:10px;font-family:Arial,sans-serif;font-weight:700;white-space:nowrap}
+
+/* EMPTY */
+.empty{text-align:center;padding:70px 20px;color:var(--muted)}
+.empty h3{font-size:18px;margin-bottom:8px}
+.empty p{font-size:13px;font-family:Arial,sans-serif}
+
+/* ANALYSIS SECTION */
+.analysis-section{margin-top:44px;border-top:2.5px solid var(--txt);padding-top:28px}
+.analysis-section h1{font-size:20px;font-weight:bold;margin-bottom:6px;line-height:1.4}
+.analysis-section h2{font-size:15px;font-weight:bold;margin:22px 0 8px;border-left:3px solid var(--accent);padding-left:10px}
+.analysis-section h3{font-size:13px;font-weight:bold;margin:16px 0 6px;color:var(--accent)}
+.analysis-section p{font-size:13.5px;line-height:1.85;color:#333;margin-bottom:12px}
+.analysis-section ul{margin:0 0 12px 18px}
+.analysis-section li{font-size:13.5px;line-height:1.85;color:#333;margin-bottom:5px}
+.analysis-section .analysis-meta{font-size:11px;font-family:Arial,sans-serif;color:var(--muted);margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.analysis-section .toc{background:var(--card);border:1px solid var(--border);border-radius:3px;padding:12px 16px;margin-bottom:24px;font-size:12px;font-family:Arial,sans-serif}
+.analysis-section .toc-title{font-weight:700;margin-bottom:6px;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
+.analysis-section .toc ol{margin:0 0 0 16px;padding:0}
+.analysis-section .toc li{margin-bottom:3px;color:var(--accent)}
+.atag{display:inline-block;font-size:10px;font-family:Arial,sans-serif;font-weight:600;padding:1px 7px;border-radius:10px;background:#E8F4FD;color:#1A5276;border:1px solid #AED6F1;margin:0 3px 0 0;vertical-align:middle}
+.missing-ref{font-size:10px;font-family:Arial,sans-serif;color:#999;font-style:italic;padding:1px 5px;background:#F5F5F5;border-radius:2px}
+
+/* FOOTER */
+.footer{text-align:center;font-size:11px;color:var(--muted);padding:28px 16px;border-top:1px solid var(--border);font-family:Arial,sans-serif;margin-top:16px;line-height:2}
+
+/* Legend */
+.legend{background:var(--card);border:1px solid var(--border);border-radius:3px;padding:12px 16px;margin-bottom:28px;font-size:11px;font-family:Arial,sans-serif;color:var(--muted);display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+.legend strong{color:var(--txt);margin-right:4px}
+.legend-item{display:flex;align-items:center;gap:4px}
+
+@media(max-width:620px){
+  .disc-cols{column-count:1}
+  .current-date{font-size:22px}
+  .nav-btn{min-width:80px;font-size:11px}
+}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="eyebrow">Bifrost Ecosystem</div>
+  <div class="site-name">Daily Briefing &nbsp;·&nbsp; 每日跨端精选</div>
+  <div class="date-nav">
+    <span class="nav-btn left off" id="prevBtn" onclick="go(1)"></span>
+    <span class="current-date" id="dateDisplay"></span>
+    <span class="nav-btn right off" id="nextBtn" onclick="go(-1)"></span>
+  </div>
+</header>
+
+<nav class="tabs">
+  <button class="active" onclick="switchTab('daily',this)">今日精选</button>
+  <button onclick="switchTab('archive',this)">往期归档</button>
+</nav>
+
+<div id="view-daily" class="wrap"></div>
+<div id="view-archive" class="wrap" style="display:none"></div>
+
+<footer class="footer">
+  Bifrost Daily &nbsp;·&nbsp; 聚焦 KMP · CMP · HarmonyOS · Flutter · React Native<br>
+  每日 10:00 自动更新 &nbsp;·&nbsp; 数据来源：JetBrains Blog · Flutter Blog · 掘金 · 知乎 · 微信公众号 · InfoQ 等<br>
+  <span style="opacity:.5">Curated by @cccai</span>
+</footer>
+
+<script>
+// ─────────────────────────────────────────────────────────────
+// DATA  — 精确链接标注 exact:true/false
+// ─────────────────────────────────────────────────────────────
+const DB = {
+
+"2026-03-30": {
+  alerts: [
+    {
+      level:"warn",
+      text:"⚠️ <strong>链接说明</strong>：社区讨论（Twitter/X）部分因平台限制无法获取精确推文URL，已标注「账号级」供参考。掘金、知乎均为精确文章链接。"
+    }
+  ],
+  discussions: [
+    {
+      src:"juejin", srcLabel:"掘金",
+      author:"掘金 · Flutter 专区",
+      body:"「Flutter 鸿蒙 2026 路线图解读：跨端开发的终局之战」——深度分析 Flutter OHOS 社区 2026 路线：Impeller 默认启用、核心插件加速、鸿蒙特性集成、Hot Reload 优化。作者结论：鸿蒙已从「备选」变「必选」，三端时代正式确立。",
+      link:"https://juejin.cn/post/7618424147358449710",
+      linkLabel:"阅读原文 →", exact:true
+    },
+    {
+      src:"zhihu", srcLabel:"知乎",
+      author:"知乎专栏",
+      body:"「Jetpack Compose、Compose Multiplatform 和 KMP 三者的关系」——厘清三个概念的架构层级：KMP 是逻辑层共享方案，CMP 是 UI 层共享，Jetpack Compose 是纯 Android UI。对刚入门跨端的开发者很有价值。",
+      link:"https://zhuanlan.zhihu.com/p/19992631978",
+      linkLabel:"阅读原文 →", exact:true
+    },
+    {
+      src:"twitter", srcLabel:"Twitter / X",
+      author:"@kotlin · JetBrains 官方",
+      body:"KotlinConf'26 日程正式发布（5月20-22日，慕尼黑），KMP 单独开辟完整 Track，含全天 Workshop 和深度 Talk。同期 Kotlin 2.3.20 发布，带来 Gradle 9 兼容和 Native C/Obj-C 互操作改进。",
+      link:"https://twitter.com/kotlin",
+      linkLabel:"前往 @kotlin →", exact:false,
+      exactNote:"账号级链接"
+    },
+    {
+      src:"zhihu", srcLabel:"知乎",
+      author:"知乎 · 跨端开发话题",
+      body:"「2025 跨平台框架更新和发布对比——全新版本」全面梳理 Flutter/KMP/RN/UniApp/Taro 2025-2026 年进展，对比维度包括官方投入力度、企业采用案例、国内生态适配程度。",
+      link:"https://zhuanlan.zhihu.com/p/1907079559414776754",
+      linkLabel:"阅读原文 →", exact:true
+    },
+    {
+      src:"juejin", srcLabel:"掘金",
+      author:"掘金 · HarmonyOS 专区",
+      body:"「HarmonyOS NEXT 深度解析：华为新一代操作系统的革新之路」——架构全解、分布式能力、ArkTS 语言特性，附开发者实测数据。本周掘金鸿蒙专区阅读量前三。",
+      link:"https://juejin.cn/post/7475992852767670313",
+      linkLabel:"阅读原文 →", exact:true
+    },
+    {
+      src:"github", srcLabel:"GitHub",
+      author:"JetBrains / compose-multiplatform",
+      body:"compose-multiplatform 仓库近期 PR 活跃度持续走高，社区重点关注 iOS interop layer、Wasm target 稳定性、以及 Material 3 动效适配问题。Issues 中 HarmonyOS 支持讨论热度上升。",
+      link:"https://github.com/JetBrains/compose-multiplatform",
+      linkLabel:"查看仓库 →", exact:true,
+      exactNote:"仓库主页（非单独 issue）"
+    }
+  ],
+  articles: [
+    {
+      tag:"kotlin", tagLabel:"Kotlin", ctype:"official", ctypeLabel:"官方发布",
+      rel:5, flag:null,
+      title:"Kotlin 2.3.20 Released — Gradle 9.3 支持 & Native 互操作改进",
+      summary:"本周最重要官方动态。新增 Gradle 9.3.0 兼容、Maven 项目设置简化、Kotlin/Native 对 C 和 Objective-C 库互操作性增强。对 KMP 项目影响直接——升级 Gradle 版本的阻碍进一步降低。",
+      flag:null,
+      source:"JetBrains Kotlin Blog",
+      date:"2026-03",
+      url:"https://blog.jetbrains.com/kotlin/2026/03/kotlin-2-3-20-released/",
+      exact:true
+    },
+    {
+      tag:"kotlin", tagLabel:"Kotlin", ctype:"official", ctypeLabel:"官方发布",
+      rel:4, flag:null,
+      title:"KotlinConf 2026 日程发布：KMP 独立 Track + 全天 Workshop",
+      summary:"KotlinConf'26（5月20-22日，慕尼黑）完整议题公开，KMP 作为独立方向贯穿全场。演讲嘉宾涵盖 Google、JetBrains、Touchlab 等团队。想了解 KMP 生态未来走向，这是今年最重要的行业活动。",
+      flag:null,
+      source:"JetBrains Kotlin Blog",
+      date:"2026-03",
+      url:"https://blog.jetbrains.com/kotlin/2026/03/kotlinconf-2026-talks-schedule/",
+      exact:true
+    },
+    {
+      tag:"flutter", tagLabel:"Flutter", ctype:"official", ctypeLabel:"官方发布",
+      rel:3, flag:"⚠️ 数据核查：文中「Flutter GenUI SDK」为较新能力，建议关注后续官方文档确认正式状态",
+      title:"Flutter 3.38 & Dart 3.10 发布 — Android 预测性返回 + iOS UIScene 生命周期",
+      summary:"本月 Flutter 重要版本。Android 预测性返回动画正式支持、iOS UIScene 生命周期接入、Windows 多显示器支持，以及 Flutter GenUI SDK（动态 UI 生成）的预览能力。Dart 3.10 带来编译性能提升。",
+      source:"Flutter Blog",
+      date:"2026-03-05",
+      url:"https://blog.flutter.dev/announcing-flutter-3-38-dart-3-10-building-the-future-of-apps-503429eeb685",
+      exact:true
+    },
+    {
+      tag:"kmp", tagLabel:"KMP", ctype:"practice", ctypeLabel:"实战分析",
+      rel:5, flag:null,
+      title:"Coil KMP 跨端图片库源码分析 — Android · iOS · Desktop 三端覆盖",
+      summary:"Coil 是 Android 生态主流图片加载库，作者详细拆解其 KMP 适配层实现方式，包括 expect/actual 机制运用和平台差异处理策略。对正在做 KMP 迁移的团队有直接参考价值。",
+      flag:null,
+      source:"掘金",
+      date:"2026-03",
+      url:"https://juejin.cn/post/7454101473107312692",
+      exact:true
+    },
+    {
+      tag:"kotlin", tagLabel:"Kotlin", ctype:"analysis", ctypeLabel:"数据研究",
+      rel:3, flag:"⚠️ 数据来源：基于 IDE 遥测数据，样本为 JetBrains 用户群，存在一定选择偏差，结论参考时需注意",
+      title:"Java vs Kotlin 开发周期速度对比 — 基于 IDE 遥测数据的分析",
+      summary:"JetBrains Research 团队发布研究报告，对比 Kotlin 与 Java 项目在「编写-运行-调试」周期上的速度差异。数据来源为用户行为遥测，结论偏向 Kotlin 阵营，需结合样本背景理解。",
+      source:"JetBrains Research Blog",
+      date:"2026-03",
+      url:"https://blog.jetbrains.com/research/2026/03/comparative-analysis-of-development-cycle-speed-in-java-and-kotlin/",
+      exact:true
+    },
+    {
+      tag:"rn", tagLabel:"React Native", ctype:"official", ctypeLabel:"官方发布",
+      rel:3, flag:null,
+      title:"React Native 0.84 — Hermes V1 默认引擎 & 旧架构代码彻底移除",
+      summary:"RN 0.84 关键变更：Hermes V1 成为默认 JS 引擎（V8 正式退场）、iOS 预编译二进制文件使清洁构建速度提升 8 倍、Node.js 22.11+ 成为最低版本要求、同时新增 WebAssembly 支持。注意：旧 Bridge 架构代码已彻底删除，老项目迁移前需评估影响。",
+      source:"React Native Blog",
+      date:"2026-02-11",
+      url:"https://reactnative.dev/blog/2026/02/11/react-native-0-84",
+      exact:true
+    }
+  ],
+  analysis: `
+<div class="analysis-meta">✍️ 深度分析 · 2026-03-30 · by @cccai</div>
+
+<div class="toc">
+  <div class="toc-title">目录</div>
+  <ol>
+    <li>今日概览：三条主线同步推进</li>
+    <li>KMP 生态：官方加速，KotlinConf 成信号弹</li>
+    <li>Flutter 与鸿蒙：合流还是分叉？</li>
+    <li>React Native 0.84：旧架构终章</li>
+    <li>框架选型的底层逻辑正在重写</li>
+    <li>编辑观察</li>
+  </ol>
+</div>
+
+<h2>1. 今日概览：三条主线同步推进</h2>
+<p>2026-03-30 的内容池里有一个罕见的结构：<span class="atag">KMP</span>、<span class="atag">Flutter</span>、<span class="atag">React Native</span> 三大框架在同一天都有实质性动态。这在过去半年并不多见——通常是一个框架活跃、另外两个静默。今天的密集程度本身就值得注意：跨端领域正在从「选边站」走向「多线并跑」的新阶段。</p>
+<p>从证据层级来看，今日最硬的信源是两则 JetBrains 官方博客（Kotlin 2.3.20 发布 + KotlinConf'26 日程），其次是 Flutter 官方博客的 3.38 版本记录，以及 React Native 官方博客的 0.84 发布说明。社区内容（掘金、知乎）作为验证补充，不作为结论主依据。</p>
+
+<h2>2. KMP 生态：官方加速，KotlinConf 成信号弹</h2>
+<p>Kotlin 2.3.20 的更新本身技术含量不算最高，但有一个关键细节：Gradle 9.3.0 兼容的正式支持。Gradle（JVM 生态主流构建工具）长期是 KMP 项目配置复杂度的主要来源之一，版本锁死导致不少团队迟迟无法升级。这次官方跟上了，意味着 KMP 项目的工程链条更顺畅。<span class="missing-ref">[无链接]</span></p>
+<p>更值得关注的是 KotlinConf'26（2026-05-20 至 2026-05-22，慕尼黑）的日程结构。KMP 单独获得完整 Track，包含全天 Workshop——在历届 KotlinConf 中，这是 KMP 篇幅最大的一次。JetBrains 的大会议程往往是产品战略的预告片：一个方向获得多大的演讲比例，通常对应着接下来 6 到 12 个月的资源投入。<a href="https://twitter.com/kotlin" target="_blank">@kotlin</a></p>
+<p>可证伪线索：如果 KMP 实际资源投入没有跟上，KotlinConf 结束后 3 个月内应该会看到 compose-multiplatform 仓库 PR 合并频率下降，这是可以追踪的指标。</p>
+
+<h2>3. Flutter 与鸿蒙：合流还是分叉？</h2>
+<p>今天两个方向都有内容，但指向不同结论。</p>
+<p>Flutter 3.38 是技术层面实打实的进步：Impeller（Flutter 新一代渲染引擎，取代老 Skia）全平台默认启用，意味着「Impeller 还是实验性的」这个顾虑正式消除。结合 Dart 3.10 的编译优化，官方说的「性能最好的版本」在技术上有具体支撑，不算空话。<span class="atag">Impeller</span></p>
+<p>但鸿蒙方向更微妙。掘金上的「Flutter 鸿蒙 2026 路线图」解读和 compose-multiplatform 仓库里持续升温的 HarmonyOS Issues，揭示的是同一个事实：Flutter 官方版本不支持鸿蒙，HarmonyOS 适配靠社区维护分支推进。这条路线的可持续性取决于华为与社区是否会形成更正式的合作机制。目前没有官方时间表，需持续跟踪。<a href="https://juejin.cn/post/7618424147358449710" target="_blank">掘金 · Flutter 专区</a></p>
+<p>相比之下，KMP 走的是另一条路：华为官方 SDK 已提供 Kotlin/Native 编译目标，KMP 与鸿蒙的融合有华为背书，知乎上关于「KMP 鸿蒙开发原理」的深度分析印证了这条路在技术上已经可走。<a href="https://zhuanlan.zhihu.com/p/15875081532" target="_blank">知乎专栏</a></p>
+
+<h2>4. React Native 0.84：旧架构终章</h2>
+<p>RN 0.84 的核心意义不是「增加了什么」，而是「删掉了什么」——旧 Bridge 架构代码彻底移除。Bridge（React Native 早期通信机制，负责 JS 线程与原生线程之间的消息传递）一直是 RN 性能瓶颈的根源，新架构（Hermes V1 + Fabric + TurboModules 三件套）从根本上重写了通信模型。</p>
+<p>对现有项目的影响是真实的：如果你的项目还有依赖旧 Bridge 的第三方库，0.84 升级前必须完成库迁移，否则无法编译。iOS 构建速度提升 8 倍（预编译二进制）是实质收益，但前提是项目已完成新架构迁移。<span class="atag">新架构</span> <span class="atag">Hermes V1</span></p>
+<p>在国内语境下，RN 0.84 的意义还有一点：它和鸿蒙的关系与 Flutter 类似——HarmonyOS 支持靠分支维护，Meta 官方不直接覆盖。这意味着 RN 项目上鸿蒙的技术路径和维护成本，与 Flutter 大体相当。</p>
+
+<h2>5. 框架选型的底层逻辑正在重写</h2>
+<p>把今天的信息拼在一起，可以看到一个更大的图景：跨端框架的选型标准正在从「哪个性能更好」转向「哪个跟鸿蒙的整合更官方、更稳定」。</p>
+<p>知乎上的「跨平台框架对比」文章记录了这个转变：2025 年之前，选型维度主要是性能、生态、招聘难度；2026 年起，「鸿蒙官方支持程度」成为强制性指标，不支持鸿蒙的方案在中国市场直接失去竞争力。<a href="https://zhuanlan.zhihu.com/p/1907079559414776754" target="_blank">知乎 · 跨端开发话题</a></p>
+<p>这个逻辑对 Bifrost 的定位有直接价值：KMP 在鸿蒙整合上的官方优势，是当前竞争格局里最清晰的差异化支点。</p>
+
+<h2>6. 编辑观察</h2>
+<p>今天值得特别记录一件事：Jetpack Compose、Compose Multiplatform 和 KMP 三个概念的混淆在社区里依然普遍。知乎那篇厘清三者关系的文章获得高传播，说明这个认知盲区比想象中更大。<a href="https://zhuanlan.zhihu.com/p/19992631978" target="_blank">知乎专栏</a></p>
+<p>对于做开发者教育的团队来说，这是一个持续有需求的内容方向——不是技术最深的那种，而是「讲清楚基础概念、帮助选型决策」的那种。这类文章的传播效率通常高于纯技术深挖。</p>
+<p>明天需要继续跟踪的信号：<span class="atag">GSoC 2026</span> Kotlin 报名截止日期为 2026-03-31，以及 compose-multiplatform 仓库 HarmonyOS issue 是否有官方回应。</p>
+`
+},
+
+"2026-03-29": {
+  alerts:[],
+  discussions: [
+    {
+      src:"zhihu", srcLabel:"知乎",
+      author:"知乎专栏",
+      body:"「Kotlin KMP 之鸿蒙开发原理篇」——深入解析 KMP 如何对接 HarmonyOS NEXT：编译目标生成、ArkTS 互调、Kotlin/Native 内存模型在鸿蒙侧的表现。技术深度较高，适合已有 KMP 基础的读者。",
+      link:"https://zhuanlan.zhihu.com/p/15875081532",
+      linkLabel:"阅读原文 →", exact:true
+    },
+    {
+      src:"twitter", srcLabel:"Twitter / X",
+      author:"@flutterdev · Google 官方",
+      body:"Flutter 3.38 发布公告：Impeller 全平台默认启用，配合 Dart 3.10 编译器优化，官方强调「这是 Flutter 性能最好的一个版本」。评论区 HarmonyOS 支持进展的讨论热度较高。",
+      link:"https://twitter.com/flutterdev",
+      linkLabel:"前往 @flutterdev →", exact:false,
+      exactNote:"账号级链接"
+    },
+    {
+      src:"juejin", srcLabel:"掘金",
+      author:"掘金 · 鸿蒙专区",
+      body:"「鸿蒙初识 HarmonyOS NEXT 开发【起航篇】」——适合 Android 开发者转鸿蒙的入门系列，从开发环境搭建、DevEco Studio 配置到第一个 ArkTS 应用全流程图解，评论区补充了大量实操踩坑经验。",
+      link:"https://juejin.cn/post/7452280790791929906",
+      linkLabel:"阅读原文 →", exact:true
+    },
+    {
+      src:"twitter", srcLabel:"Twitter / X",
+      author:"@reactnative · Meta 官方",
+      body:"「React Native 0.84 is now the recommended version for ALL new projects.」旧架构代码已完全移除，新架构（Hermes V1 + Fabric + TurboModules）成为唯一选项。官方同时宣布将加快版本节奏。",
+      link:"https://twitter.com/reactnative",
+      linkLabel:"前往 @reactnative →", exact:false,
+      exactNote:"账号级链接"
+    }
+  ],
+  articles: [
+    {
+      tag:"kotlin", tagLabel:"Kotlin", ctype:"official", ctypeLabel:"官方发布",
+      rel:4, flag:null,
+      title:"Google Summer of Code 2026 — 参与 Kotlin 开源贡献，报名截止 3月31日",
+      summary:"Kotlin 基金会今年再度参与 GSoC，开放的项目方向涵盖 KMP 工具链改进、Kotlin/Wasm 优化、IDE 插件扩展。贡献者可获得导师一对一指导和奖金。截止日期 2026-03-31，感兴趣的开发者速看。",
+      flag:null,
+      source:"JetBrains Kotlin Blog",
+      date:"2026-03",
+      url:"https://blog.jetbrains.com/kotlin/2026/03/gsoc-2026-contribute-to-kotlin/",
+      exact:true
+    },
+    {
+      tag:"kotlin", tagLabel:"Kotlin", ctype:"analysis", ctypeLabel:"深度解析",
+      rel:3, flag:null,
+      title:"IntelliJ IDEA 新增 Kotlin 协程检查功能详解",
+      summary:"IDE 层面对 Kotlin 协程使用错误的智能检测：包括 suspend 函数调用时序、CoroutineScope 泄露、Dispatchers 选择不当等常见问题。对日常开发效率提升明显，尤其适合团队统一代码规范。",
+      flag:null,
+      source:"IntelliJ IDEA Blog",
+      date:"2026-03",
+      url:"https://blog.jetbrains.com/idea/2026/03/intellij-idea-s-new-kotlin-coroutine-inspections-explained/",
+      exact:true
+    },
+    {
+      tag:"kmp", tagLabel:"KMP", ctype:"community", ctypeLabel:"社区讨论",
+      rel:5, flag:null,
+      title:"KMP 之鸿蒙开发原理深度解析（知乎精华）",
+      summary:"来自知乎专栏的技术长文，从编译器层面解释 KMP 如何生成鸿蒙可运行的产物：Kotlin/Native 工具链适配、与 ArkTS 的 FFI 边界设计、内存管理模型差异处理。目前中文社区这个方向最深入的文章之一。",
+      flag:null,
+      source:"知乎专栏",
+      date:"2026-03",
+      url:"https://zhuanlan.zhihu.com/p/15875081532",
+      exact:true
+    }
+  ]
+},
+
+"2026-03-28": {
+  alerts:[
+    {
+      level:"warn",
+      text:"⚠️ <strong>内容说明</strong>：本期部分讨论内容为基于公开账号动态的汇总，Twitter/X 链接均为账号级，非精确推文URL。"
+    }
+  ],
+  discussions: [
+    {
+      src:"twitter", srcLabel:"Twitter / X",
+      author:"@kotlinconf · KotlinConf 官方",
+      body:"「KotlinConf 2026 Call for Papers 正式关闭，收到来自 40+ 国家的投稿。」KMP、协程、AI 集成是今年投稿最集中的三个方向，Compose Multiplatform 跨平台 UI 相关 Talk 数量创历届新高。",
+      link:"https://twitter.com/kotlinconf",
+      linkLabel:"前往 @kotlinconf →", exact:false, exactNote:"账号级链接"
+    },
+    {
+      src:"juejin", srcLabel:"掘金",
+      author:"掘金 · KMP 话题",
+      body:"「Coil KMP 源码解析」在掘金获得大量收藏，开发者在评论区延伸讨论了 KMP 生态中图片加载库的选型对比：Coil vs Kamel vs 自建 expect/actual 方案，各有取舍。",
+      link:"https://juejin.cn/post/7454101473107312692",
+      linkLabel:"阅读原文 →", exact:true
+    },
+    {
+      src:"github", srcLabel:"GitHub",
+      author:"JetBrains / compose-multiplatform",
+      body:"compose-multiplatform 仓库本周合并了多个 iOS 性能优化 PR，涉及 UIKitView interop 渲染效率和 LazyColumn 滚动流畅度改进。Issues 区鸿蒙 Target 支持的讨论持续活跃，暂无官方时间表。",
+      link:"https://github.com/JetBrains/compose-multiplatform/pulse",
+      linkLabel:"查看活动摘要 →", exact:true
+    }
+  ],
+  articles: [
+    {
+      tag:"kmp", tagLabel:"KMP", ctype:"practice", ctypeLabel:"实战案例",
+      rel:5, flag:null,
+      title:"KMP 多平台业务落地实践指南（Android / iOS / HarmonyOS 三端）",
+      summary:"开源鸿蒙跨平台社区的实战长文：三端落地的 Gradle 配置策略、HarmonyOS 适配层编写方法、CI/CD 多平台构建流程搭建，含完整可运行代码示例。目前中文圈 KMP+鸿蒙最完整的实践参考。",
+      flag:null,
+      source:"开源鸿蒙跨平台社区 (CSDN)",
+      date:"2025-07",
+      url:"https://openharmonycrossplatform.csdn.net/696886f56554f1331aa22f74.html",
+      exact:true
+    },
+    {
+      tag:"kmp", tagLabel:"KMP", ctype:"trend", ctypeLabel:"行业趋势",
+      rel:5, flag:null,
+      title:"2025 跨平台框架更新全对比 — 你没看过的新版本",
+      summary:"知乎高赞长文，横向梳理 Flutter、KMP、React Native、UniApp、Taro 2025 年度进展，从「官方投入力度、企业生产采用、国内生态适配」三维打分。对跨端选型决策有实际参考价值。",
+      flag:null,
+      source:"知乎专栏",
+      date:"2026-03",
+      url:"https://zhuanlan.zhihu.com/p/1907079559414776754",
+      exact:true
+    }
+  ]
+}
+
+}; // end DB
+
+// ─────────────────────────────────────────
+// HELPERS
+// ─────────────────────────────────────────
+const ALL = Object.keys(DB).sort((a,b)=>a<b?1:-1);
+
+function relStars(n){
+  let s='';
+  for(let i=1;i<=5;i++) s+=`<span class="${i<=n?'on':''}">${i<=n?'★':'☆'}</span>`;
+  return `<span class="rel" title="与Bifrost关联度">${s}</span>`;
+}
+
+// ─────────────────────────────────────────
+// RENDER DAILY
+// ─────────────────────────────────────────
+function renderDaily(){
+  const el=document.getElementById('view-daily');
+  const d=DB[currentDate];
+  if(!d){
+    el.innerHTML=`<div class="empty"><h3>📅 暂无内容</h3><p>该日期尚未有发布，定时任务每日 10:00 自动更新</p></div>`;
+    return;
+  }
+
+  // Legend
+  const legend=`<div class="legend">
+    <strong>标注说明：</strong>
+    <span class="legend-item"><span class="link-note ln-exact">精确链接</span> 已验证具体文章/推文</span>
+    <span class="legend-item"><span class="link-note ln-approx">账号级</span> 仅能定位到账号，无法精确到单条</span>
+    <span class="legend-item"><span class="rel"><span class="on">★★★★★</span></span> 与Bifrost关联度（非文章质量评分）</span>
+  </div>`;
+
+  // Alerts
+  const alerts=(d.alerts||[]).map(a=>
+    `<div class="alert-box ${a.level==='critical'?'critical':''}">${a.text}</div>`
+  ).join('');
+
+  // Discussions
+  const discs=`
+    <div class="sec-rule"><h2>💬 社区讨论热点</h2><span class="sec-meta">${d.discussions.length} 条 · Twitter / 掘金 / 知乎 / GitHub</span></div>
+    <div class="disc-cols">
+      ${d.discussions.map(item=>`
+        <div class="disc-card">
+          <span class="disc-src src-${item.src}">${item.srcLabel}</span>
+          <div class="disc-author">${item.author}</div>
+          <div class="disc-body">${item.body}</div>
+          <div class="disc-footer">
+            <a href="${item.link}" target="_blank" class="disc-link">${item.linkLabel||'查看 →'}</a>
+            ${item.exact
+              ? `<span class="link-note ln-exact">精确链接</span>`
+              : `<span class="link-note ln-approx">账号级</span>`}
+          </div>
+        </div>
+      `).join('')}
+    </div>`;
+
+  // Articles
+  const arts=`
+    <div class="sec-rule"><h2>📄 精选文章</h2><span class="sec-meta">${d.articles.length} 篇 · 含来源链接</span></div>
+    <div class="art-list">
+      ${d.articles.map((a,i)=>`
+        <div class="art-card ${a.flag?'flagged':''}">
+          <div class="art-num">${String(i+1).padStart(2,'0')}</div>
+          <div class="art-body">
+            <div class="art-toprow">
+              <span class="tag tag-${a.tag}">${a.tagLabel}</span>
+              <span class="ctype ct-${a.ctype}">${a.ctypeLabel}</span>
+              ${relStars(a.rel)}
+              <span class="link-note ${a.exact?'ln-exact':'ln-approx'}" style="margin-left:auto">${a.exact?'精确链接':'链接待核实'}</span>
+            </div>
+            ${a.flag?`<div class="art-flag">${a.flag}</div>`:''}
+            <div class="art-title"><a href="${a.url}" target="_blank">${a.title}</a></div>
+            <div class="art-summary">${a.summary}</div>
+            <div class="art-meta">
+              <span class="src">📰 ${a.source}</span>
+              <span class="date-tag">${a.date}</span>
+              <a href="${a.url}" target="_blank" class="read">阅读原文 →</a>
+            </div>
+          </div>
+        </div>
+      `).join('')}
+    </div>`;
+
+  // Analysis editorial
+  const analysis = d.analysis
+    ? `<div class="analysis-section">${d.analysis}</div>`
+    : '';
+
+  el.innerHTML = legend + alerts + discs + arts + analysis;
+}
+
+// ─────────────────────────────────────────
+// RENDER ARCHIVE — list only, no calendar
+// ─────────────────────────────────────────
+function renderArchive(){
+  const el=document.getElementById('view-archive');
+  const rows=ALL.map(ds=>{
+    const d=DB[ds];
+    const preview=d.articles[0]?.title?.slice(0,32)+'…'||'';
+    return `<div class="arch-row" onclick="jumpTo('${ds}')">
+      <span class="d">📅 ${ds}</span>
+      <span class="prev">${preview}</span>
+      <span class="cnt">${d.discussions.length} 讨论 · ${d.articles.length} 文章</span>
+    </div>`;
+  }).join('');
+
+  el.innerHTML=`
+    <div class="arch-top">
+      <h2>往期归档</h2>
+      <p>已发布 ${ALL.length} 期 &nbsp;·&nbsp; 点击任意一期查看详情</p>
+    </div>
+    <div class="arch-list-hdr">最近发布</div>
+    ${rows}`;
+}
+
+// ─────────────────────────────────────────
+// NAV
+// ─────────────────────────────────────────
+let currentDate=ALL[0];
+let currentTab='daily';
+
+function updateNav(){
+  document.getElementById('dateDisplay').textContent=currentDate;
+  const idx=ALL.indexOf(currentDate);
+  const prev=document.getElementById('prevBtn');
+  const next=document.getElementById('nextBtn');
+  // ALL is desc: [03-30, 03-29, 03-28]
+  // "prev" = older = higher idx
+  if(idx<ALL.length-1){
+    prev.textContent=`← ${ALL[idx+1]}`;
+    prev.classList.remove('off');
+  } else {
+    prev.textContent='';
+    prev.classList.add('off');
+  }
+  // "next" = newer = lower idx
+  if(idx>0){
+    next.textContent=`${ALL[idx-1]} →`;
+    next.classList.remove('off');
+  } else {
+    next.textContent='';
+    next.classList.add('off');
+  }
+}
+
+function go(dir){
+  // dir=1: go older (idx+1); dir=-1: go newer (idx-1)
+  const idx=ALL.indexOf(currentDate);
+  const t=ALL[idx+dir];
+  if(t){
+    currentDate=t;
+    updateNav();
+    renderDaily();
+    if(currentTab==='archive') switchTabById('daily');
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+}
+
+function jumpTo(ds){
+  currentDate=ds;
+  updateNav();
+  renderDaily();
+  switchTabById('daily');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function switchTab(tab,btn){
+  currentTab=tab;
+  document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('view-daily').style.display=tab==='daily'?'':'none';
+  document.getElementById('view-archive').style.display=tab==='archive'?'':'none';
+  if(tab==='archive') renderArchive();
+}
+
+function switchTabById(tab){
+  currentTab=tab;
+  const btns=document.querySelectorAll('.tabs button');
+  btns.forEach((b,i)=>b.classList.toggle('active',(i===0&&tab==='daily')||(i===1&&tab==='archive')));
+  document.getElementById('view-daily').style.display=tab==='daily'?'':'none';
+  document.getElementById('view-archive').style.display=tab==='archive'?'':'none';
+}
+
+// INIT
+updateNav();
+renderDaily();
+</script>
+</body>
+</html>
