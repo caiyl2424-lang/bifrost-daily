@@ -190,6 +190,155 @@ a{color:inherit;text-decoration:none}
 // ─────────────────────────────────────────────────────────────
 const DB = {
 
+"2026-03-31": {
+  alerts: [
+    {
+      level:"warn",
+      text:"⚠️ <strong>链接核验说明</strong>：本期多条链接来自搜索引擎结果，因沙盒环境网络限制，HTTP 验证统一返回失败，已标注 exact:false。链接均为搜索引擎真实返回 URL，非推断构造。仅 GitHub 仓库经 HTTP 200 验证标注 exact:true。"
+    }
+  ],
+  discussions: [
+    {
+      src:"zhihu", srcLabel:"知乎",
+      author:"知乎专栏 · 腾讯技术",
+      body:"腾讯跨端框架 Kuikly 正式开源，官方发文梳理技术架构与落地规模：已覆盖内部 20+ 款 App、1000+ 业务页面，日均 PV 5 亿+。基于 KMP 构建，将 Kotlin 代码编译为各平台原生产物，支持 Android / iOS / 鸿蒙 / Web / 小程序。GitHub 仓库同步开放，社区关注度持续攀升。",
+      link:"https://zhuanlan.zhihu.com/p/1900555553845022730",
+      linkLabel:"阅读原文 →", exact:false
+    },
+    {
+      src:"weixin", srcLabel:"微信公众号",
+      author:"InfoQ · 技术编辑",
+      body:"深度复盘：腾讯团队历时 295 天，基于 Flutter 框架完成纯血鸿蒙微信 App 开发。微信 1.0.3.42 版本正式上架鸿蒙商城，支持消息、支付、公众号、小程序、视频号全功能。腾讯选择坚持 Flutter 技术路线，被视为对该框架在生产级大型项目中可靠性的背书。",
+      link:"https://www.infoq.cn/article/dzk6s3ufaytrpvrdkobi",
+      linkLabel:"阅读原文 →", exact:false
+    },
+    {
+      src:"zhihu", srcLabel:"知乎",
+      author:"知乎 · 跨端开发话题",
+      body:"「2025 年 KMP 的现状和未来，选择 KMP 会有什么问题吗？」全面盘点 KMP 技术成熟度：JetBrains + Google 双重背书、Compose Multiplatform iOS 达 Stable、K2 编译器默认化。作者坦诚列出现存问题：iOS 构建速度、第三方库生态密度仍有差距，但整体「可用于生产」结论已明确。",
+      link:"https://zhuanlan.zhihu.com/p/1909172519560286454",
+      linkLabel:"阅读原文 →", exact:false
+    },
+    {
+      src:"zhihu", srcLabel:"知乎",
+      author:"恋猫de小郭 · GSY 系列",
+      body:"「Flutter 鸿蒙 2026 路线发布，加速同步官方生态，进一步优化体验」——郭树煜对 Flutter-OH 2026 路线图的详细解读：适配周期从 7+ 个月压缩至约 4 个月，季度发布节奏对齐官方，200+ 高优先级三方库完成鸿蒙适配。是目前关于 Flutter 鸿蒙进展最系统的中文解析。",
+      link:"https://zhuanlan.zhihu.com/p/2016571565735682780",
+      linkLabel:"阅读原文 →", exact:false
+    },
+    {
+      src:"github", srcLabel:"GitHub",
+      author:"Tencent-TDS / KuiklyUI",
+      body:"腾讯 KuiklyUI 开源仓库持续迭代，最新版本 core-render-android 已支持 HarmonyOS（2.4.0-2.0.21-ohos 构建产物），Maven Central 同步发布。仓库 README 已更新「一套 Kotlin 代码，六端运行」定位，Compose 分支包名采用 com.tencent.kuikly.compose，以避免与 JetBrains 官方代码冲突。",
+      link:"https://github.com/Tencent-TDS/KuiklyUI",
+      linkLabel:"查看仓库 →", exact:true
+    }
+  ],
+  articles: [
+    {
+      tag:"cmp", tagLabel:"CMP", ctype:"official", ctypeLabel:"官方发布",
+      rel:5, flag:null,
+      title:"Compose Multiplatform 1.10.0 — 统一 @Preview、Navigation 3、Hot Reload 正式稳定",
+      summary:"JetBrains 2026 年首个 CMP 正式版本。三大核心更新：① 统一 @Preview 注解，commonMain 源集可直接使用，不再需要按平台分包；② 原生支持 Navigation 3，提供多种常见导航模式配方；③ Compose Hot Reload 达到 Stable 并默认开启，无需额外配置。iOS 稳定后的首个功能扩展版本，标志着 CMP 进入成熟期。",
+      source:"JetBrains Kotlin Blog",
+      date:"2026-01",
+      url:"https://blog.jetbrains.com/kotlin/2026/01/compose-multiplatform-1-10-0/",
+      exact:false
+    },
+    {
+      tag:"kmp", tagLabel:"KMP", ctype:"official", ctypeLabel:"官方发布",
+      rel:5, flag:null,
+      title:"Room 3.0 发布 — 原生支持 KMP + JavaScript / Wasm，彻底拥抱协程优先 API",
+      summary:"Google 官方 Jetpack Room 3.0 重大版本。在已有 Android / iOS / JVM Desktop 支持的基础上，新增 JavaScript 和 WebAssembly 目标，完成真正意义上的全平台覆盖。API 层面全面转向 Kotlin 协程优先（Coroutine-first），是支持 Web 平台的必要架构前提。对正在做 KMP 迁移的 Android 团队：Room 3.0 是升级路径上最关键的一块拼图。",
+      source:"Android Developers Blog",
+      date:"2026-03",
+      url:"https://android-developers.googleblog.com/2026/03/room-30-modernizing-room.html",
+      exact:false
+    },
+    {
+      tag:"kmp", tagLabel:"KMP", ctype:"practice", ctypeLabel:"实战落地",
+      rel:5, flag:null,
+      title:"腾讯 KuiklyUI 正式开源 — KMP 跨端框架覆盖六平台，日均 5 亿 PV",
+      summary:"腾讯端服务团队将内部跨端框架 Kuikly 完整开源。核心架构基于 KMP，一套 Kotlin 代码编译为 Android / iOS / HarmonyOS / Web / 小程序原生产物。目前在腾讯内部已覆盖 20+ App、1000+ 页面，日均 PV 5 亿级。包含 Compose 集成方案（com.tencent.kuikly.compose 包），HarmonyOS 构建产物已在 Maven Central 发布。是目前最大规模的 KMP 生产落地案例之一。",
+      source:"GitHub · Tencent-TDS/KuiklyUI",
+      date:"2026-03",
+      url:"https://github.com/Tencent-TDS/KuiklyUI",
+      exact:true
+    },
+    {
+      tag:"rn", tagLabel:"React Native", ctype:"official", ctypeLabel:"官方发布",
+      rel:4, flag:"⚠️ 升级注意：旧 Bridge 架构代码已彻底删除，依赖旧架构三方库的项目升级前须完成库迁移评估",
+      title:"React Native 0.84 — Hermes V1 默认引擎，iOS 构建速度提升 8 倍",
+      summary:"RN 0.84 标志旧架构终章：Hermes V1 成为默认 JS 引擎（V8 退场）、旧 Bridge 架构代码彻底删除。iOS 预编译二进制文件默认开启，清洁构建时间缩短 8 倍。新增 HEIC/HEIF 图片格式支持、Android 硬件键盘事件监听。最低要求 Node.js 22.11+。对国内团队：上鸿蒙路径与 Flutter 类似，依赖社区维护的 RNOH 分支。",
+      source:"React Native Blog",
+      date:"2026-02",
+      url:"https://reactnative.dev/blog/2026/02/11/react-native-0.84",
+      exact:false
+    },
+    {
+      tag:"flutter", tagLabel:"Flutter", ctype:"trend", ctypeLabel:"行业趋势",
+      rel:4, flag:null,
+      title:"Flutter 鸿蒙 2026 路线图：适配周期压缩至 4 个月，200+ 三方库计划适配",
+      summary:"Flutter OpenHarmony 社区发布 2026 年路线图，核心承诺：① 跟随 Flutter 官方季度发布节奏（官方 3.41 已发布，OH 版本计划 4 个月内跟进）；② 至少 200 个高优先级三方库完成鸿蒙适配，涵盖网络、数据库、图片、音视频、地图；③ 稳定版 + 开发版双轨并行，文档体系同步完善。微信、Bilibili 等头部 App 已验证 Flutter 在鸿蒙上的生产可用性。",
+      source:"GSY · 恋猫de小郭 / HarmonyOS 开发者社区",
+      date:"2026-03",
+      url:"https://harmonyosdev.csdn.net/69b7651754b52172bc61b1ab.html",
+      exact:false
+    }
+  ],
+  analysis: `
+<div class="analysis-meta">✍️ 深度分析 · 2026-03-31 · by @cccai</div>
+
+<div class="toc">
+  <div class="toc-title">目录</div>
+  <ol>
+    <li>今日概览：官方发布密集，大厂落地交叉验证</li>
+    <li>Compose Multiplatform 1.10.0：成熟期信号</li>
+    <li>Room 3.0 × KMP：Jetpack 全面拥抱跨端</li>
+    <li>腾讯 Kuikly：KMP 最大规模生产落地案例</li>
+    <li>Flutter × 鸿蒙：从技术验证走向工程化</li>
+    <li>三端时代的选型新逻辑</li>
+    <li>编辑观察</li>
+  </ol>
+</div>
+
+<h2>1. 今日概览：官方发布密集，大厂落地交叉验证</h2>
+<p>2026-03-31，这一期内容在两个维度同时密集：<strong>官方发布层面</strong>，Compose Multiplatform 1.10.0 和 Room 3.0 相继落地，两者都直接指向 KMP 生态的基础设施补全；<strong>大厂落地层面</strong>，腾讯 Kuikly 开源文章、微信鸿蒙 295 天开发复盘同时在传播，为技术选型讨论提供了难得的真实样本。</p>
+<p>从证据层级看，今天最硬的信源依次是：① JetBrains 官方博客（CMP 1.10.0）；② Android Developers 官方博客（Room 3.0）；③ React Native 官方博客（RN 0.84）；④ GitHub 开源仓库（Kuikly）。社区内容作为验证和传播补充，不独立支撑结论。</p>
+
+<h2>2. Compose Multiplatform 1.10.0：成熟期信号</h2>
+<p>CMP 1.10.0 的三个核心更新，单独看都不算惊天动地，但放在一起读出的信号是：<span class="atag">CMP</span> 已经从「功能建设期」过渡到「体验打磨期」。</p>
+<p>统一 <code>@Preview</code> 注解是典型的「扫尾」动作。此前开发者要在 commonMain 里写 UI，但预览时需要跳回平台模块——这是一个持续摩擦点。现在统一到 commonMain，体验补平了。Navigation 3 的支持同理：不是新能力，而是把 Android 生态已经验证的解决方案正式引入 KMP 体系。</p>
+<p>Hot Reload 达到 Stable 的意义相对更大。热重载是开发效率的核心体验，之前需要单独配置的门槛让很多团队不敢依赖它；默认开启意味着这个能力被官方正式背书，可以放进项目规范里要求全员使用。<a href="https://blog.jetbrains.com/kotlin/2026/01/compose-multiplatform-1-10-0/" target="_blank">JetBrains Kotlin Blog</a></p>
+
+<h2>3. Room 3.0 × KMP：Jetpack 全面拥抱跨端</h2>
+<p>Room 3.0 是 Google 对 KMP 战略承诺的最新实物证明。回顾一下时间线：2024 年 Google I/O 宣布正式支持 KMP，承诺将 Jetpack 库逐步 KMP 化；2025 年 Room、DataStore、ViewModel 等相继发布 KMP 版本；2026 年 3 月，Room 3.0 新增 JavaScript 和 Wasm 目标，完成全平台覆盖。<a href="https://android-developers.googleblog.com/2026/03/room-30-modernizing-room.html" target="_blank">Android Developers Blog</a></p>
+<p>这条时间线的重要性在于：它是 Google 说到做到的轨迹，不是路线图上的承诺。对 Android 团队来说，Room 3.0 意味着数据层可以直接共享到 iOS、Web 甚至 Wasm 目标，不需要分层维护两套数据库代码。API 层面转向协程优先也是正确方向——旧 suspend 函数包装方式终于统一。</p>
+<p>需要关注的是 Breaking Change：这是 Room 的大版本升级，迁移成本不低，特别是 Kotlin 协程优先 API 的改变会影响现有代码结构。适合新项目或有升级规划的团队，不建议在生产项目上仓促升级。</p>
+
+<h2>4. 腾讯 Kuikly：KMP 最大规模生产落地案例</h2>
+<p>腾讯 Kuikly 的开源，给跨端开发社区的意义不只是「多一个框架选项」。它最核心的价值是：这是目前已知<strong>规模最大的 KMP 生产落地案例</strong>——5 亿+ 日活 PV，20+ 款 App，覆盖 QQ、腾讯新闻、QQ 音乐、搜狗输入法等主力产品，这个量级的技术验证在全球 KMP 生态里都是顶级样本。<a href="https://github.com/Tencent-TDS/KuiklyUI" target="_blank">GitHub · Tencent-TDS/KuiklyUI</a></p>
+<p>Kuikly 的技术路线是务实的：KMP 只做逻辑和跨端编译层，UI 渲染交给各平台原生（Android、iOS、ArkUI），而不像 Flutter 那样自绘 UI。这个选择在性能上有优势（原生渲染 = 接近原生体验），但意味着 UI 代码无法直接共享，需要在各平台分别实现展示层。</p>
+<p>对 Bifrost 平台的参考价值：Kuikly 的架构证明了 KMP 在「逻辑共享 + 原生 UI」模式下可以规模化交付，且华为 HarmonyOS 是 Kuikly 的一等公民目标平台，和 Bifrost 的技术方向高度吻合。</p>
+
+<h2>5. Flutter × 鸿蒙：从技术验证走向工程化</h2>
+<p>微信鸿蒙版的复盘文章提供了一个关键数据点：腾讯团队花了 295 天完成纯血鸿蒙微信 App，其中 Flutter 被用于部分功能模块。但文章本身承认「没说清哪里用了 Flutter」——这个模糊本身就是一个信号：Flutter 在鸿蒙上的角色是局部工具，而不是主架构。<a href="https://www.infoq.cn/article/dzk6s3ufaytrpvrdkobi" target="_blank">InfoQ</a></p>
+<p>Flutter-OH 2026 路线图（郭树煜解读版）则描述了一个更乐观的图景：适配周期从 7 个月压缩到 4 个月，意味着 Flutter 开发者等新功能的时间窗口从「几乎一年」变成「一个季度」。这个改进是实质性的，对于已有 Flutter 技术栈的团队来说，上鸿蒙的边际成本将大幅降低。<a href="https://zhuanlan.zhihu.com/p/2016571565735682780" target="_blank">知乎</a></p>
+<p>但一个结构性局限仍然存在：Flutter 官方（Google）不直接支持鸿蒙，HarmonyOS 适配靠华为 + 社区分支维护。这条路线的长期可持续性，取决于华为是否会持续投入资源维护分支。目前没有更换策略的迹象，但值得持续跟踪。</p>
+
+<h2>6. 三端时代的选型新逻辑</h2>
+<p>「三端时代」——Android + iOS + HarmonyOS 三端并存——已经从预言变成现实约束。知乎上的「2025 KMP 现状」文章和「跨平台框架对比」文章都不约而同地把「鸿蒙官方支持程度」列为选型的强制性维度。这是 2025 年之前少见的表述。<a href="https://zhuanlan.zhihu.com/p/1909172519560286454" target="_blank">知乎</a></p>
+<p>在这个新逻辑下，各框架的相对位置发生了微妙变化：KMP 从「Android/iOS 共享业务逻辑的补充方案」升格为「可以原生接入鸿蒙的跨端基础设施」；Flutter 从「主流跨端框架」变成「高性能 UI 跨端工具，鸿蒙支持依赖社区」；React Native 的位置与 Flutter 类似，RNOH 是平行的社区维护路线。</p>
+<p>对于中大型团队的选型建议（基于今日信息推断，非个案结论）：如果鸿蒙是必选项 + 团队有 Kotlin 基础，KMP 路线的整合成本最低；如果已有成熟 Flutter 代码资产，Flutter-OH 是边际成本最小的迁移路径；纯鸿蒙原生（ArkTS + ArkUI）适合新项目且需要充分利用鸿蒙特性的场景。</p>
+
+<h2>7. 编辑观察</h2>
+<p>今天汇集的信息里，有一个值得记录的模式：技术选型讨论的主战场正在从「哪个框架性能更好」转向「哪个框架跟鸿蒙的整合最官方、最稳」。这个转变背后是华为通过控制开发者生态主动塑造市场的成果——当一个平台的市场份额大到无法忽视，它的技术要求就会成为所有框架的外部约束。</p>
+<p>Bifrost 的内容策略含义：「KMP 是三端时代最自然的跨端基础设施」这个叙事，现在有比六个月前更充分的证据支撑——Room 3.0 的发布、Kuikly 的规模落地、Google 的持续 Jetpack KMP 化，都在同一方向上积累。这个叙事可以更自信地讲。</p>
+<p>明日跟踪信号：GSoC 2026 Kotlin 贡献者报名截止（2026-03-31 今日），以及 KotlinConf'26 早鸟票信息是否更新。</p>
+`
+},
+
+
 "2026-03-30": {
   alerts: [
     {
