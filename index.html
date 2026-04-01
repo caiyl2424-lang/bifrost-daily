@@ -190,6 +190,137 @@ a{color:inherit;text-decoration:none}
 // ─────────────────────────────────────────────────────────────
 const DB = {
 
+"2026-04-01": {
+  alerts: [
+    {
+      level:"warn",
+      text:"⚠️ <strong>链接核验说明</strong>：本期多条链接来自搜索引擎结果，因沙盒环境网络限制，HTTP 验证统一返回 403 Forbidden，已标注 exact:false。链接均为搜索引擎真实返回 URL，非推断构造。仅 GitHub 仓库经 HTTP 200 验证标注 exact:true。"
+    }
+  ],
+  discussions: [
+    {
+      src:"weixin", srcLabel:"微信公众号",
+      author:"鹅厂黑板报 · 腾讯微信团队",
+      body:"纯血鸿蒙版微信 App 于2025年1月正式上线，团队历时295天完成适配。值得关注的是，微信在鸿蒙端依然采用了 Flutter 技术栈，结合 Alita 跨平台内核实现支付和音视频通话功能。这一选型决策表明 Flutter 在鸿蒙生态中的地位正持续巩固，大厂对其跨端能力给予了实质性信任。",
+      link:"https://www.infoq.cn/article/dzk6s3ufaytrpvrdkobi",
+      linkLabel:"阅读原文 →",
+      exact: false
+    },
+    {
+      src:"zhihu", srcLabel:"知乎",
+      author:"恋猫de小郭 · 知乎专栏",
+      body:"Flutter 鸿蒙 2026 路线图正式发布，社区版 Flutter-ohos 将加速同步官方生态版本，计划把适配周期从7个月压缩至4个月左右。2026年还将完成至少200个高优先级第三方库的鸿蒙适配，覆盖网络、数据库、图片处理、音视频、地图等核心领域。",
+      link:"https://zhuanlan.zhihu.com/p/2016571565735682780",
+      linkLabel:"阅读原文 →",
+      exact: false
+    },
+    {
+      src:"zhihu", srcLabel:"知乎",
+      author:"腾讯开源 · Kuikly 团队",
+      body:"腾讯正式开源基于 KMP 的全平台开发框架 Kuikly，已在 QQ、QQ音乐、腾讯新闻等20+应用深度使用，覆盖1000+页面，日活服务5亿+用户。Kuikly 支持 Android/iOS/HarmonyOS/Web/小程序，是目前国内规模最大的 KMP 生产级实践案例。",
+      link:"https://zhuanlan.zhihu.com/p/1899885546454619944",
+      linkLabel:"阅读原文 →",
+      exact: false
+    },
+    {
+      src:"github", srcLabel:"GitHub",
+      author:"Tencent-TDS · KuiklyUI",
+      body:"Kuikly 在 GitHub 正式开源，定位为基于 Kotlin Multiplatform 的高性能跨端 UI 框架。支持一套代码运行于全平台，强调开发易用性与动态灵活性。项目由腾讯 TDS 团队维护，Maven Central 已发布 2.4.x 版本，含 Compose 和 HarmonyOS 适配模块。",
+      link:"https://github.com/Tencent-TDS/KuiklyUI",
+      linkLabel:"查看仓库 →",
+      exact: true
+    },
+    {
+      src:"juejin", srcLabel:"掘金",
+      author:"掘金社区 · HarmonyOS 开发者",
+      body:"鸿蒙 NEXT 上的 KMP 与 Compose 探索引发开发者热议。HarmonyOS NEXT 完全脱离 AOSP 后，三端适配成为2026年移动端开发的核心命题。多位开发者分享了基于 KMP + Compose Multiplatform 在鸿蒙平台的实战经验与踩坑记录。",
+      link:"https://juejin.cn/post/7353097850936377381",
+      linkLabel:"阅读原文 →",
+      exact: false
+    }
+  ],
+  articles: [
+    {
+      tag:"cmp", tagLabel:"Compose Multiplatform",
+      ctype:"official", ctypeLabel:"官方发布",
+      rel:5, flag:null,
+      title:"Compose Multiplatform 1.10.0: Unified @Preview, Navigation 3, and Stable Compose Hot Reload",
+      summary:"JetBrains 于2026年1月发布 Compose Multiplatform 1.10.0，带来统一的 @Preview 注解支持、Navigation 3 集成及稳定版 Compose Hot Reload。此版本标志着 CMP 在全平台开发体验上的又一次重大飞跃，开发者可在 Android、iOS、桌面和 Web 端享受一致的预览和导航体验。",
+      source:"JetBrains Kotlin Blog",
+      date:"2026-01",
+      url:"https://blog.jetbrains.com/kotlin/2026/01/compose-multiplatform-1-10-0/",
+      exact: false
+    },
+    {
+      tag:"rn", tagLabel:"React Native",
+      ctype:"official", ctypeLabel:"官方发布",
+      rel:4, flag:null,
+      title:"React Native 0.84 — Hermes V1 by Default",
+      summary:"React Native 0.84 于2026年2月发布，将 Hermes V1 设为默认 JavaScript 引擎，带来显著的性能提升。此版本延续了 0.82 以来完全运行于新架构的路线，标志着 React Native 在性能和现代化方面的持续推进，冷启动速度和内存占用均有改善。",
+      source:"React Native Blog",
+      date:"2026-02",
+      url:"https://reactnative.dev/blog/2026/02/11/react-native-0.84",
+      exact: false
+    },
+    {
+      tag:"hmos", tagLabel:"HarmonyOS",
+      ctype:"official", ctypeLabel:"官方发布",
+      rel:5, flag:null,
+      title:"HarmonyOS 6 (API 23) Developer Beta 正式开放，支持50000名开发者",
+      summary:"华为于2026年2月正式开放 HarmonyOS 6 开发者 Beta 招募，API 版本升至23，首批限额5万名开发者。Beta 支持 Mate 80/70 系列、Pura 80 系列等多款设备，聚焦全新系统能力和 DevEco Studio 深度集成，开发者需通过实名认证和保密协议方可参与。",
+      source:"Gizmochina",
+      date:"2026-02",
+      url:"https://www.gizmochina.com/2026/02/07/harmonyos-6-api-23-developer-beta-is-live-full-supported-device-list-revealed/",
+      exact: false
+    },
+    {
+      tag:"kmp", tagLabel:"KMP",
+      ctype:"official", ctypeLabel:"官方发布",
+      rel:4, flag:null,
+      title:"Room 3.0 — Modernizing the Room：Google 发布全新 KMP 支持的数据库框架",
+      summary:"Google 于2026年3月发布 Room 3.0，对 Android 最受欢迎的数据库框架进行现代化升级，进一步强化 Kotlin Multiplatform 支持。Room、DataStore、Collection 等 Jetpack 库已稳定支持 KMP，ViewModel、SavedState 和 Paging 也已加入，KMP 生态持续壮大。",
+      source:"Android Developers Blog",
+      date:"2026-03",
+      url:"https://android-developers.googleblog.com/2026/03/room-30-modernizing-room.html",
+      exact: false
+    },
+    {
+      tag:"flutter", tagLabel:"Flutter",
+      ctype:"analysis", ctypeLabel:"深度分析",
+      rel:4, flag:null,
+      title:"2026年鸿蒙跨平台开发前瞻：Flutter、React Native 及其他框架全景对比",
+      summary:"知乎万字长文深度对比2026年鸿蒙跨端开发选型。Flutter-ohos 社区版已可通过 C-API 调用鸿蒙底层能力，被视为大型项目迁移的最强竞争者。React Native 凭借前端友好性和快速落地速度受到青睐，而原生 ArkTS 仍是品牌一致性要求高的大厂首选。",
+      source:"知乎专栏",
+      date:"2026-03",
+      url:"https://zhuanlan.zhihu.com/p/2000910086613255920",
+      exact: false
+    }
+  ],
+  analysis: `
+<div class="analysis-meta">✍️ 深度分析 · 2026-04-01 · by @cccai</div>
+<div class="toc">
+  <div class="toc-title">目录</div>
+  <ol><li>今日概览</li><li>KMP 生态加速：从 Jetpack 到腾讯 Kuikly</li><li>Flutter 鸿蒙化进入工程落地阶段</li><li>React Native 0.84 与新架构全面切换</li><li>编辑观察</li></ol>
+</div>
+<h2>1. 今日概览</h2>
+<p>2026年4月1日，跨端开发领域呈现三条清晰主线：KMP 生态在 Google 和腾讯的双重推动下加速成熟，Flutter 鸿蒙适配从技术验证走向工程化量产，React Native 完成新架构全面切换。三大框架在各自优势领域持续深耕，"三端时代"（Android + iOS + HarmonyOS）的技术基建正在快速成型。</p>
+
+<h2>2. KMP 生态加速：从 Jetpack 到腾讯 Kuikly</h2>
+<p>Google 在3月发布 Room 3.0，将 Android 最核心的数据库框架全面升级为 KMP 支持，加上此前已稳定的 DataStore、ViewModel、Paging 等库，Jetpack KMP 化已覆盖移动端开发的核心链路。与此同时，腾讯 Kuikly 作为国内规模最大的 KMP 生产实践，覆盖20+应用、1000+页面、5亿日活，其开源为整个 KMP 生态注入了来自中国大厂的工程经验。JetBrains 方面，Compose Multiplatform 1.10.0 在年初带来了统一预览、Navigation 3 和稳定版 Hot Reload，CMP 的 iOS 端已进入 Stable 状态。KMP 从"共享业务逻辑"到"共享 UI"的闭环正在形成。</p>
+
+<h2>3. Flutter 鸿蒙化进入工程落地阶段</h2>
+<p>微信鸿蒙版上线是2025年初的标志性事件，其技术选型（Flutter + Alita 跨平台内核）为 Flutter 在鸿蒙生态中的地位提供了强有力的背书。进入2026年，Flutter-ohos 社区版发布了正式路线图，计划将版本同步周期从7个月压缩至4个月，并在年内完成200+高优先级第三方库的适配。华为方面，HarmonyOS 6 Developer Beta 的开放（API 23、5万名开发者名额）为跨端框架提供了更完善的底层能力支撑。对于 Bifrost 而言，Flutter 鸿蒙化的工程化进展意味着"跨三端"的技术可行性正在被大规模验证。</p>
+
+<h2>4. React Native 0.84 与新架构全面切换</h2>
+<p>React Native 在2026年2月发布的0.84版本将 Hermes V1 设为默认引擎，延续了0.82以来完全运行于新架构的路线。新架构的全面切换消除了 Bridge 瓶颈，配合 Hermes V1 的字节码预编译，冷启动和运行时性能均有显著提升。值得注意的是，Meta 还在 React Conf 2025 上宣布了 React Native 对 Meta Quest VR 设备的官方支持，将跨端的边界从移动端延伸到 XR 领域。</p>
+
+<h2>编辑观察</h2>
+<p>2026年Q2伊始，跨端开发的竞争格局愈发清晰：KMP 凭借 Google + JetBrains 的双引擎和腾讯等中国大厂的规模验证，在"逻辑共享"赛道占据领先；Flutter 以其在鸿蒙生态中被微信等超级应用采纳的事实，巩固了"UI共享"赛道的优势；React Native 则以新架构+Hermes V1 的组合拳维持着前端生态的竞争力。对于 Bifrost 这样基于 KMP/CMP 的跨端平台而言，当前环境是最好的窗口期——Jetpack KMP 化的完善降低了开发者迁移成本，Kuikly 的开源证明了 KMP 在超大规模应用中的可行性，而 HarmonyOS 6 的开放为三端统一提供了更坚实的系统级支撑。建议持续关注 Compose Multiplatform 1.10 的社区反馈、Kuikly 的开源进展，以及 Flutter-ohos 的Q2版本同步进度。</p>
+`
+},
+
+
+
 "2026-03-31": {
   alerts: [
     {
