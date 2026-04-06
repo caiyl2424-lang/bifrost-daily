@@ -222,7 +222,7 @@ const DB = {
     {
       src:"zhihu", srcLabel:"知乎",
       author:"知乎 · 鸿蒙开发者",
-      body:"华为 HarmonyOS 6 (API 23) 开发者 Beta 招募开启，上限 5 万名开发者，面向 Mate 80/70、Mate X6/X7 折叠屏、Pura 80 及多款平板。官方已正式取消 NEXT 后缀，统一命名为 HarmonyOS 6.0，强化一次开发多端部署的"界面级/功能级/工程级"三层一多能力。",
+      body:"华为 HarmonyOS 6 (API 23) 开发者 Beta 招募开启，上限 5 万名开发者，面向 Mate 80/70、Mate X6/X7 折叠屏、Pura 80 及多款平板。官方已正式取消 NEXT 后缀，统一命名为 HarmonyOS 6.0，强化一次开发多端部署的「界面级/功能级/工程级」三层一多能力。",
       link:"https://www.gizmochina.com/2026/02/07/harmonyos-6-api-23-developer-beta-is-live-full-supported-device-list-revealed/",
       linkLabel:"阅读原文 →",
       exact: false
@@ -322,8 +322,8 @@ const DB = {
 <p>2026 年 4 月第一周，跨端赛道的几条主线同时释放新信号：JetBrains 将 Swift Package Manager 纳入 KMP 实验能力，Compose Hot Reload 1.0 随 CMP 1.10 默认内置；华为正式开放 HarmonyOS 6 开发者 Beta 并彻底告别 NEXT 命名；掘金社区 Flutter ohos 2026 路线图进一步压缩鸿蒙适配周期；腾讯 Kuikly 在 QQ、腾讯新闻等 20+ 应用中服务 5 亿 DAU 的数据再次被官方确认。这些动向共同指向同一个结论：跨端技术栈正在从「选型之争」走向「工程化深耕」。</p>
 
 <h2>2. JetBrains 官方节奏：KMP + CMP 工具链补齐最后一块拼图</h2>
-<p>三月 Kodee Roundup 最值得关注的并非 Kotlin 2.3.20 的小版本更新，而是 Swift Package Manager 正式以实验特性进入 KMP——这意味着 iOS 依赖的注入路径第一次摆脱 CocoaPods，与 Xcode 原生工具链对齐。配合一月发布的 Compose Hot Reload 1.0，KMP 在 iOS 侧的"最后一公里"开发者体验已基本补齐：依赖管理、热重载、统一 @Preview、AGP 9.0 KMP 专用插件四件套齐整。</p>
-<p>这对任何考虑从 React Native 或 Flutter 迁移的团队而言都是重要风向标——KMP 过去被诟病的"iOS 体验割裂"正在被系统性修补。</p>
+<p>三月 Kodee Roundup 最值得关注的并非 Kotlin 2.3.20 的小版本更新，而是 Swift Package Manager 正式以实验特性进入 KMP——这意味着 iOS 依赖的注入路径第一次摆脱 CocoaPods，与 Xcode 原生工具链对齐。配合一月发布的 Compose Hot Reload 1.0，KMP 在 iOS 侧的「最后一公里」开发者体验已基本补齐：依赖管理、热重载、统一 @Preview、AGP 9.0 KMP 专用插件四件套齐整。</p>
+<p>这对任何考虑从 React Native 或 Flutter 迁移的团队而言都是重要风向标——KMP 过去被诟病的「iOS 体验割裂」正在被系统性修补。</p>
 
 <h2>3. 鸿蒙赛道：HarmonyOS 6 Beta 与 Flutter 路线图双线推进</h2>
 <p>华为正式开放 HarmonyOS 6 (API 23) Beta，招募上限 5 万人，覆盖 Mate 80/70、折叠屏与平板等主力机型，同时官方淡化 NEXT 后缀——这是华为对「鸿蒙已进入稳定期」的明确姿态。与此同时，Flutter ohos 社区 2026 路线图将鸿蒙适配周期从 7 个月压缩至约 4 个月，并计划 Impeller 替换 Skia 成为默认渲染后端、高频插件鸿蒙适配覆盖率 80%+。</p>
@@ -333,7 +333,7 @@ const DB = {
 <p>腾讯 Kuikly 的最新披露数据（20+ 应用、1000+ 页面、5 亿 DAU）说明 KMP 在国内超大流量场景下已完成生产验证。尤其值得注意的是它的定位：不是单一的 UI 框架，而是 Kotlin + 定制 Compose + 动态下发 + 多端渲染的完整解决方案。AOT 模式下 Android 300KB、iOS 1.2MB 的 SDK 体积，回应了过去对 KMP/Compose 产物过大的长期质疑。</p>
 
 <h2>5. 对 Bifrost 的启示</h2>
-<p>第一，JetBrains 官方在工具链层面的持续投入为 Bifrost 的"编译器与运行时 + UI 框架与融合渲染"定位提供了更扎实的上游底座，可考虑基于 CMP 1.10 的 Hot Reload 能力构建差异化诊断工具。第二，鸿蒙已是"必选项"而非"备选项"，Bifrost 的 KMP/CMP + HarmonyOS 战略在这个时间点具备极强的时序正确性。第三，腾讯 Kuikly 的成功说明国内市场愿意为高质量的 KMP 工程体系买单——这对 Bifrost 的 DevOps 与性能诊断产品线意味着明确的付费人群已经存在。</p>
+<p>第一，JetBrains 官方在工具链层面的持续投入为 Bifrost 的「编译器与运行时 + UI 框架与融合渲染」定位提供了更扎实的上游底座，可考虑基于 CMP 1.10 的 Hot Reload 能力构建差异化诊断工具。第二，鸿蒙已是"必选项"而非"备选项"，Bifrost 的 KMP/CMP + HarmonyOS 战略在这个时间点具备极强的时序正确性。第三，腾讯 Kuikly 的成功说明国内市场愿意为高质量的 KMP 工程体系买单——这对 Bifrost 的 DevOps 与性能诊断产品线意味着明确的付费人群已经存在。</p>
 
 <h2>编辑观察</h2>
 <p>过去两年，"跨端"一词的讨论总围绕技术路线互斥展开；而 2026 年 Q2 的真实图景是：Flutter、KMP/CMP、ArkUI 原生在同一套企业应用里共存已成常态。开发者关心的不再是"谁胜谁负"，而是"怎样在多栈共存的前提下把增量成本压到最低"。Bifrost 的机会正在这里——不是卖单一框架，而是提供跨栈协同的工程化中枢。</p>
@@ -454,7 +454,7 @@ const DB = {
       exact: false
     }
   ],
-  analysis: \`
+  analysis: `
 <div class="analysis-meta">✍️ 深度分析 · 2026-04-05 · by @cccai</div>
 <div class="toc">
   <div class="toc-title">目录</div>
@@ -478,7 +478,7 @@ const DB = {
 
 <h2>编辑观察</h2>
 <p>站在 2026 年 4 月的时间节点回望，跨端开发正在经历一次范式转换：从「选择框架」到「设计架构」。Flutter 依然是 UI 一致性的最佳选择，KMP 正在成为逻辑共享的事实标准，而鸿蒙的加入使得「跨端」的含义从 Android + iOS 扩展为 Android + iOS + HarmonyOS。对 Bifrost 这样定位于跨端基础设施的平台而言，这恰恰是最大的机遇窗口：市场需要的不是又一个框架，而是能够整合编译器、运行时、UI 融合渲染和 DevOps 工具链的全栈解决方案。KMP 的快速成熟为此提供了坚实的技术基底，鸿蒙的崛起则创造了差异化的市场空间。</p>
-\`
+`
 },
 
 
