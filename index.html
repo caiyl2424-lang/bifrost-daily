@@ -190,6 +190,147 @@ a{color:inherit;text-decoration:none}
 // ─────────────────────────────────────────────────────────────
 const DB = {
 
+"2026-04-07": {
+  alerts: [
+    {level:"info", html:"⚠️ 本期链接来源于搜索引擎真实返回结果，因沙盒网络限制无法 HTTP 校验，已统一标记 exact:false。"}
+  ],
+  discussions: [
+    {
+      src:"juejin", srcLabel:"掘金",
+      author:"掘金 · Flutter ohos 社区",
+      body:"Flutter 鸿蒙 2026 路线规划深度解读：Flutter-OH 将按季度跟进官方发布，版本落差从 7 个月压缩到约 4 个月；Impeller 将成为鸿蒙默认渲染后端替代 Skia；规划 200+ 高频三方库鸿蒙适配，覆盖相机、地图、支付、推送等场景，目标达成 80%+ 适配率。",
+      link:"https://juejin.cn/post/7618424147358449710",
+      linkLabel:"阅读原文 →",
+      exact: false
+    },
+    {
+      src:"zhihu", srcLabel:"知乎",
+      author:"知乎 · 恋猫de小郭",
+      body:"Flutter 鸿蒙 2026 路线正式发布，Flutter SIG 将主导 Flutter-OH 后续版本规划、适配节奏和技术路线。社区将围绕鸿蒙原生能力和 Flutter 插件开发展开技能沉淀，输出可复用、可组合的插件鸿蒙化 Skill 集合，降低开发者参与鸿蒙适配的门槛。",
+      link:"https://zhuanlan.zhihu.com/p/2016571565735682780",
+      linkLabel:"阅读原文 →",
+      exact: false
+    },
+    {
+      src:"weixin", srcLabel:"微信公众号",
+      author:"IT之家 · 鸿蒙生态",
+      body:"华为 HarmonyOS 6.0.0.328 版本公测全面铺开，Mate 80/Pura 80/Mate X7 等 40+ 机型已开启花粉 Beta 招募。本次更新带来星闪车钥匙、小艺 Claw AI 助手、午睡小结等新功能，小艺 Claw 众测期至 4 月 7 日。",
+      link:"https://hmos.ithome.com/",
+      linkLabel:"阅读原文 →",
+      exact: false
+    },
+    {
+      src:"zhihu", srcLabel:"知乎",
+      author:"知乎 · 跨端开发者",
+      body:"2026 年鸿蒙跨平台开发八大框架前瞻：Flutter-OH、RN-OH、KMP-OH、uni-app x、Kuikly 等方案各有定位。核心议题从「是否支持鸿蒙」转向「如何最高效融入鸿蒙生态」，混合开发模式（部分原生 + 部分跨平台）成为复杂应用的务实选择。",
+      link:"https://zhuanlan.zhihu.com/p/2000910086613255920",
+      linkLabel:"阅读原文 →",
+      exact: false
+    },
+    {
+      src:"github", srcLabel:"GitHub",
+      author:"Kuikly 官方",
+      body:"腾讯 Kuikly 框架持续更新，已完成对 iOS 26「液态玻璃」设计的首阶段适配并开源发布。Web 版支持 H5 和微信小程序，已接入搜狗输入法、鹅毛市集、QQ 小游戏等业务。鸿蒙版已在 QQ 浏览器、腾讯新闻、全民 K 歌等 APP 量产上架。",
+      link:"https://github.com/Tencent-TDS/KuiklyUI",
+      linkLabel:"查看仓库 →",
+      exact: true
+    }
+  ],
+  articles: [
+    {
+      tag:"kmp", tagLabel:"KMP",
+      ctype:"official", ctypeLabel:"官方发布",
+      rel:5, flag:null,
+      title:"KotlinConf 2026 倒计时：完整议程上线，Koog AI 框架成焦点",
+      summary:"KotlinConf 2026 将于 5 月 20-22 日在慕尼黑举行，完整议程已上线。亮点包括 Google Search 使用 Kotlin 协程构建大规模异步系统、Uber 在 Java monorepo 中引入 Kotlin 的实战分享、以及 JetBrains 新推出的 Koog AI Agent 框架 Workshop。4 月 21 日起进入 Final Call 票价阶段。",
+      source:"JetBrains Kotlin Blog",
+      date:"2026-03",
+      url:"https://blog.jetbrains.com/kotlin/2026/03/kotlinconf-2026-talks-schedule/",
+      exact: false
+    },
+    {
+      tag:"flutter", tagLabel:"Flutter",
+      ctype:"official", ctypeLabel:"官方发布",
+      rel:5, flag:null,
+      title:"Flutter 3.41 发布：公开发版窗口、设计库模块化、平台资源过滤",
+      summary:"Flutter 3.41 正式发布，带来透明化发版机制——公布 2026 年四个季度的分支截止日期，开发者可提前规划 PR 合入节奏。Material/Cupertino 库继续向独立包迁移，Asset 支持 platform 标签按需打包。Impeller bounded blur 修复边缘色溢问题，CupertinoSheet 新增 showDragHandle。",
+      source:"Flutter Blog",
+      date:"2026-02",
+      url:"https://blog.flutter.dev/whats-new-in-flutter-3-41-302ec140e632",
+      exact: false
+    },
+    {
+      tag:"rn", tagLabel:"React Native",
+      ctype:"community", ctypeLabel:"社区分析",
+      rel:5, flag:null,
+      title:"React Native 新架构 2026 迁移指南：Fabric + TurboModules 全面默认",
+      summary:"React Native 0.82 起旧架构被永久移除，0.84 将 Fabric 渲染器设为默认。生产迁移数据显示冷启动提速 43%、渲染性能提升 39%、内存降低 26%。Expo SDK 55 已强制启用新架构，85% 主流 npm 包已兼容。2026 年是 RN 技术债清偿的关键年份。",
+      source:"Software Mansion",
+      date:"2026-01",
+      url:"https://swmansion.com/blog/react-native-in-2026-trends-our-predictions-463a837420c7",
+      exact: false
+    },
+    {
+      tag:"hmos", tagLabel:"HarmonyOS",
+      ctype:"news", ctypeLabel:"行业动态",
+      rel:4, flag:null,
+      title:"HarmonyOS 6.0.0.328 公测扩展：Mate 80/Pura 80 等 40+ 机型适配",
+      summary:"华为 HarmonyOS 6.0.0.328 版本公测招募全面铺开，覆盖 Mate 80/70 系列、Pura 80 系列、Mate X6/X7 折叠屏、WATCH GT 6/5 等产品线。新增星闪车钥匙、跑步功率监测、舞林萌主表盘等功能。小艺 Claw AI 助手众测同步开启，支持一键唤醒、多端协同、自我学习。",
+      source:"IT之家",
+      date:"2026-04",
+      url:"https://hmos.ithome.com/",
+      exact: false
+    },
+    {
+      tag:"kmp", tagLabel:"KMP",
+      ctype:"community", ctypeLabel:"社区实践",
+      rel:4, flag:null,
+      title:"腾讯 Kuikly 完成「液态玻璃」适配，Web 版开源支持 H5 与小程序",
+      summary:"Kuikly 团队宣布完成对 iOS 26「液态玻璃」设计语言的首阶段适配。Web 版在 H5 和微信小程序平台已实现绝大多数核心组件能力，接入搜狗输入法、QQ 小游戏等业务。鸿蒙版保持原生级性能表现，打开速度比 RN 快 6 倍，与原生基本一致。",
+      source:"腾讯技术工程",
+      date:"2026-04",
+      url:"https://www.oschina.net/p/kuikly",
+      exact: false
+    }
+  ],
+  analysis: `
+<div class="analysis-meta">✍️ 深度分析 · 2026-04-07 · by @cccai</div>
+<div class="toc">
+  <div class="toc-title">目录</div>
+  <ol>
+    <li>今日概览</li>
+    <li>KotlinConf 2026 倒计时：AI Agent 框架成为新焦点</li>
+    <li>Flutter 3.41 与鸿蒙路线图的双线推进</li>
+    <li>React Native 新架构时代正式到来</li>
+    <li>鸿蒙 6 公测扩展与三端开发格局</li>
+    <li>编辑观察</li>
+  </ol>
+</div>
+
+<h2>1. 今日概览</h2>
+<p>2026 年 4 月第一周，跨端开发领域呈现出「工具链成熟」与「生态深耕」的双重特征。KotlinConf 2026 完整议程上线，Koog AI Agent 框架成为 Workshop 亮点；Flutter 3.41 带来透明化发版机制和设计库模块化；React Native 新架构在 0.82 后成为唯一选项；HarmonyOS 6.0.0.328 公测覆盖 40+ 机型。这些动向共同指向一个趋势：2026 年的跨端竞争已从「框架选型」进入「工程化深度」阶段。</p>
+
+<h2>2. KotlinConf 2026 倒计时：AI Agent 框架成为新焦点</h2>
+<p>KotlinConf 2026 将于 5 月 20-22 日在慕尼黑举行，完整议程已上线。最值得关注的是 JetBrains 新推出的 Koog AI Agent 框架——这是一个面向 JVM 和 KMP 的类型安全 Agent 开发框架，支持成本控制、状态持久化、OpenTelemetry 可观测性等生产级能力。另一个亮点是 Google Search 团队分享的 Qflow 数据图语言，展示了 Kotlin 协程在大规模异步系统中的实战应用。</p>
+<p>这两个议题的交汇点在于：Kotlin 正在从「更好的 Java」演进为「AI 时代的全栈语言」。Koog 的出现意味着 AI Agent 开发不再是 Python 的专属领域，KMP 的跨平台能力可以让 Agent 逻辑同时运行在服务端、Android、iOS 甚至 WASM 上。</p>
+
+<h2>3. Flutter 3.41 与鸿蒙路线图的双线推进</h2>
+<p>Flutter 3.41 的核心变化不是某个具体功能，而是发版机制的透明化。官方公布了 2026 年四个季度的分支截止日期，开发者可以提前规划 PR 合入节奏，插件作者可以预判依赖框架修复的时间窗口。这种「公开契约」对大型项目的版本升级决策有实质帮助。</p>
+<p>与此同时，Flutter-OH 社区发布 2026 路线图，承诺将版本落差从 7 个月压缩到 4 个月以内。Impeller 将成为鸿蒙默认渲染后端，200+ 高频三方库的鸿蒙适配也在规划中。两条线的交汇意味着：选择 Flutter 的团队可以在 iOS/Android 端使用最新稳定版，鸿蒙端则保持一个版本差的追赶节奏，整体风险可控。</p>
+
+<h2>4. React Native 新架构时代正式到来</h2>
+<p>React Native 0.82 起，旧架构被永久移除。这是一个里程碑事件——意味着 JSI、Fabric、TurboModules 不再是可选项，而是所有 RN 项目的基础设施。生产迁移数据显示冷启动提速 43%、渲染性能提升 39%、内存降低 26%，这些收益足以覆盖迁移成本。</p>
+<p>Expo SDK 55 同步强制启用新架构，且 85% 的主流 npm 包已兼容。对仍在观望的团队而言，2026 年是技术债清偿的最后窗口期——社区正在快速抛弃旧架构兼容代码，延迟迁移只会让未来的升级成本更高。</p>
+
+<h2>5. 鸿蒙 6 公测扩展与三端开发格局</h2>
+<p>HarmonyOS 6.0.0.328 版本公测覆盖 Mate 80/70、Pura 80、Mate X6/X7 等 40+ 机型，标志着鸿蒙 6 正在从「开发者预览」走向「大规模用户触达」。小艺 Claw AI 助手的众测开启，也表明华为正在将 AI 能力作为鸿蒙 6 的核心差异化卖点。</p>
+<p>对跨端开发者而言，2026 年的格局已经清晰：Android + iOS + HarmonyOS 的三端时代已经到来。无论选择 Flutter、KMP 还是 React Native，鸿蒙适配都不再是「可选项」而是「必选项」。腾讯 Kuikly 在鸿蒙端 6 倍于 RN 的性能表现，也为 KMP 路线提供了有力的生产验证。</p>
+
+<h2>编辑观察</h2>
+<p>本周的新闻呈现出一个共同主题：各大框架和平台都在进入「成熟期维护」模式。Flutter 公开发版窗口、RN 移除旧架构、KMP 稳定 Swift Export、鸿蒙 6 扩大公测——这些都是「技术债清偿」和「生态稳定化」的信号。对开发者而言，这意味着 2026 年的选型风险正在降低，但同时也意味着「观望等待」的策略成本正在升高。早期采用者的先发优势窗口正在收窄，现在是做出技术决策并开始迁移的好时机。</p>
+`
+},
+
 "2026-04-06": {
   alerts: [
     {level:"info", html:"⚠️ 本期多数 URL 因沙箱网络限制无法 HTTP 校验，除 GitHub 外均标记为 exact:false；链接来源于搜索引擎真实返回结果，可正常人工访问。"}
