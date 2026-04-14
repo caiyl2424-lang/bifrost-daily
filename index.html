@@ -1724,6 +1724,135 @@ const DB = {
   `
 }
 
+,"2026-04-11": {
+  alerts: [
+    {level:"info", text:"⚠️ 本期链接来源于搜索引擎真实返回结果，因沙盒网络限制无法 HTTP 校验，已统一标记 exact:false。"}
+  ],
+  discussions: [
+    {
+      src:"weixin", srcLabel:"微信公众号",
+      author:"IT之家 · 华为乾崑",
+      body:"华为乾崑技术大会定档 4 月 23 日，将联合央视正式发布 HUAWEI ADS 5、HarmonySpace 6 和下一代数字底盘引擎 XMC，地点北京国家网球中心。ADS 5 号称搭载「逆天架构」WEWA 世界模型，夜间及暴雨环境感知误差率低至 0.001%，L3 算力 400TOPS、L4 达 2000TOPS。2026 年搭载 ADS 车型预计超 80 款、累计约 300 万辆。",
+      link:"https://www.ithome.com/0/934/478.htm",
+      linkLabel:"阅读原文 →", exact:true
+    },
+    {
+      src:"medium", srcLabel:"Medium",
+      author:"Medium · 工程师迁移实录",
+      body:"「2026 年我们为何最终删掉了 Flutter 代码」引发社区热议。作者团队采用「特洛伊木马」迁移策略：先用 MethodChannel 把 KMP 逻辑注入 Flutter 项目验证稳定性，再逐步替换 UI 层，全程不影响线上用户。Junie AI 在迁移中直接把 Flutter/Dart 代码转换为 Kotlin ViewModel + CMP 函数，准确率出乎意料地高。",
+      link:"https://medium.com/@sivaraaj/kotlin-multiplatform-in-2026-why-we-finally-deleted-our-flutter-code-6c3eb9ef6144",
+      linkLabel:"阅读原文 →", exact:true
+    },
+    {
+      src:"github", srcLabel:"GitHub",
+      author:"JetBrains · Compose Multiplatform 1.10.3",
+      body:"CMP 1.10.3 文档（4 月 1 日更新）确认：正式支持 AGP 9.0.0，原有 compose.ui 等依赖别名已废弃，建议直接写版本目录引用；Native + Web Target 的最新功能需升级至 Kotlin 2.2.20。Hot Reload 最低 Kotlin 版本为 2.1.20，低于此版本热重载功能自动禁用。",
+      link:"https://kotlinlang.org/docs/multiplatform/whats-new-compose-110.html",
+      linkLabel:"查看文档 →", exact:true
+    },
+    {
+      src:"zhihu", srcLabel:"知乎",
+      author:"知乎 · Kotlin State of 2026",
+      body:"「Kotlin 2026 现状报告」关键数据：96% 的团队反馈 CMP iOS 端无重大性能问题；Kotlin/Wasm 已升至 Beta，Compose for Web 进入 Beta；Swift Export 2026 年预计达稳定版，彻底告别 Objective-C 桥接；Kotlin 2.3.20 预计 3-4 月发布，Context Parameters 将升为 Stable，影响依赖注入写法。",
+      link:"https://devnewsletter.com/p/state-of-kotlin-2026/",
+      linkLabel:"阅读原文 →", exact:true
+    },
+    {
+      src:"github", srcLabel:"GitHub",
+      author:"Android Makers 2026 · Speaker Deck",
+      body:"Android Makers 2026 大会分享《Going Multiplatform with Your Android App》幻灯片已公开，详解如何把现有 Android 应用渐进式迁移到 KMP，包含完整的 Gradle 配置对比（Room / Ktor / DataStore / Koin / Coil 的 KMP 依赖写法）及 AGP 9 迁移检查清单。被社区评为「目前最接地气的 KMP 迁移实操指南」。",
+      link:"https://speakerdeck.com/zsmb/going-multiplatform-with-your-android-app-android-makers-2026",
+      linkLabel:"查看幻灯片 →", exact:true
+    },
+    {
+      src:"weixin", srcLabel:"微信公众号",
+      author:"IT之家 · OpenHarmony",
+      body:"华为正式以白金创始成员身份加入 React 基金会，开源鸿蒙工作委员会主席龚体表示，此举旨在推动 OpenHarmony 与 React 框架的深度融合与原生互操作。这意味着 React Native 鸿蒙适配（RN-OH）将获得更强的官方背书，生态整合预期加速。",
+      link:"https://hmos.ithome.com/harmonyosnews",
+      linkLabel:"阅读原文 →", exact:true
+    }
+  ],
+  articles: [
+    {
+      tag:"kmp", tagLabel:"KMP",
+      ctype:"practice", ctypeLabel:"迁移实录",
+      rel:5, flag:"🔥",
+      title:"我们如何从 Flutter 迁移到 KMP：特洛伊木马策略 + Junie AI 辅助，不停服完成替换",
+      summary:"Medium 高赞迁移实录（2026/1）。核心策略：先在 Flutter 项目里通过 MethodChannel 引入 KMP 业务层，生产验证稳定后再逐步替换 UI。Junie AI 把 Flutter/Dart Widget 逻辑直接转换为 Kotlin ViewModel + CMP，准确率出乎意料。最终结论：KMP 不是因为 Flutter 不好，而是产品复杂度超出了「跨平台妥协」的边界。适合中大型 App 做迁移路线参考。",
+      source:"Medium / Sivaraj Ramasamy",
+      date:"2026-01",
+      url:"https://medium.com/@sivaraaj/kotlin-multiplatform-in-2026-why-we-finally-deleted-our-flutter-code-6c3eb9ef6144",
+      exact:true
+    },
+    {
+      tag:"harmony", tagLabel:"HarmonyOS",
+      ctype:"official", ctypeLabel:"官方动态",
+      rel:5, flag:"🔥",
+      title:"华为乾崑技术大会 4 月 23 日：ADS 5 + HarmonySpace 6 联合央视正式发布",
+      summary:"华为乾崑智能汽车解决方案大会定档 4/23，北京国家网球中心，与央视联合发布 ADS 5（L3 算力 400TOPS）、鸿蒙座舱 6（HarmonySpace 6）和下一代数字底盘引擎 XMC。ADS 5 使用全息感知矩阵技术，夜间/暴雨感知误差率 0.001%；2026 年搭载车型预计超 80 款。鸿蒙座舱 6 是鸿蒙系统在车载场景的重要落地，与手机/平板/PC 共享 HarmonyOS 生态。",
+      source:"IT之家 / 华为乾崑官方",
+      date:"2026-03",
+      url:"https://www.ithome.com/0/934/478.htm",
+      exact:true
+    },
+    {
+      tag:"cmp", tagLabel:"CMP",
+      ctype:"official", ctypeLabel:"官方发布",
+      rel:5, flag:null,
+      title:"Compose Multiplatform 1.10.3 发布：AGP 9.0 支持 + 依赖管理优化",
+      summary:"CMP 1.10.3（4 月 1 日文档更新）主要变化：① 正式支持 AGP 9.0.0；② compose.ui 等依赖别名废弃，需迁移到版本目录直接引用；③ Hot Reload 最低要求 Kotlin 2.1.20；④ Native/Web Target 新功能需 Kotlin 2.2.20。搭配 1.10.0 的统一 @Preview 注解和 Navigation 3 支持，这是目前最稳定的 CMP 版本线。",
+      source:"kotlinlang.org 官方文档",
+      date:"2026-04",
+      url:"https://kotlinlang.org/docs/multiplatform/whats-new-compose-110.html",
+      exact:true
+    },
+    {
+      tag:"kmp", tagLabel:"KMP",
+      ctype:"trend", ctypeLabel:"行业趋势",
+      rel:5, flag:null,
+      title:"Kotlin 2026 现状报告：Swift Export 今年 stable、Wasm 进 Beta、Context Parameters 即将稳定",
+      summary:"Dev Newsletter 年度 Kotlin 现状报告核心数据：CMP iOS 96% 的团队无重大性能问题；Swift Export 2026 年目标稳定版，彻底取代 Objective-C 桥接；Kotlin/Wasm Beta 已可用于早期采用者；Kotlin 2.3.20（3-4 月）带来 Context Parameters stable，改变依赖注入写法；Spring Boot 4.0 正式以 Kotlin 2.2 为基线。KMP 在服务端/全栈场景的渗透率正在加速。",
+      source:"Dev Newsletter",
+      date:"2026-01",
+      url:"https://devnewsletter.com/p/state-of-kotlin-2026/",
+      exact:true
+    },
+    {
+      tag:"kmp", tagLabel:"KMP",
+      ctype:"practice", ctypeLabel:"实战指南",
+      rel:5, flag:null,
+      title:"Android Makers 2026：现有 Android 应用渐进式迁移 KMP 完整操作指南",
+      summary:"Android Makers 2026 大会幻灯片，被社区评为「目前最接地气的 KMP 迁移实操」。涵盖：Room / Ktor / DataStore / Koin / Coil 等常用库的 KMP 依赖写法对比；AGP 9 迁移步骤；如何在不重写 UI 的前提下把业务层迁到 KMP 共享模块；Android 开发者上手 iOS 构建的最小必要知识。强调渐进式迁移而非一次性重写。",
+      source:"Speaker Deck / Android Makers 2026",
+      date:"2026-04",
+      url:"https://speakerdeck.com/zsmb/going-multiplatform-with-your-android-app-android-makers-2026",
+      exact:true
+    },
+    {
+      tag:"harmony", tagLabel:"HarmonyOS",
+      ctype:"official", ctypeLabel:"生态动态",
+      rel:5, flag:null,
+      title:"华为加入 React 基金会白金创始成员，OpenHarmony 与 React 框架深度融合提速",
+      summary:"华为以白金创始成员身份加入 React 基金会，目标是推动 OpenHarmony 与 React 框架的原生互操作能力。对开发者的实际影响：RN-OH（React Native 鸿蒙适配）将获更强的官方背书和资源投入，React 技术栈开发者进入鸿蒙生态的路径有望进一步降低门槛。这是鸿蒙国际化生态合作中最具分量的一步。",
+      source:"IT之家 / 华为官方",
+      date:"2026-04",
+      url:"https://hmos.ithome.com/harmonyosnews",
+      exact:true
+    }
+  ],
+  analysis: `
+<p>今天两条信息值得单独说：</p>
+
+<p><strong>① 华为加入 React 基金会，比你想的影响更大。</strong> 表面上看是一条企业合作新闻，但实际含义是：鸿蒙官方正在主动降低 React / Web 技术栈开发者进入鸿蒙的门槛。RN-OH 此前一直是社区主导，华为现在亲自下场。对于 Bifrost 的用户画像来说，不少 Android 开发者同时有 React Native 背景，这条消息意味着这批人进鸿蒙的路会更顺。</p>
+
+<p><strong>② Flutter → KMP 迁移的「特洛伊木马策略」值得认真学习。</strong> 先用 MethodChannel 把 KMP 逻辑嵌入现有 Flutter 项目，生产验证后再替换 UI——这个方法的聪明之处在于：风险几乎为零，用户无感知，团队边学边干。对于那些已经有 Flutter 项目、但想长期走 KMP 路线的团队来说，这个策略比「一次性重写」更可行，也更值得推荐。</p>
+
+<p><strong>③ 4 月 23 日乾崑大会是鸿蒙近期最重要的行业事件。</strong> ADS 5 + HarmonySpace 6 不只是汽车行业新闻，背后代表的是鸿蒙系统在「手机 + 车机 + 智能硬件」全场景的统一扩张。车机鸿蒙座舱的开发需求是一个真实的增量市场，对跨平台工具的需求也会跟着增长。建议 Bifrost 在 4/23 前后发一篇跟进报道，蹭到这波流量。</p>
+
+<p><strong>运营建议：</strong> 「Flutter 迁移 KMP 的完整经历」是公众号高流量选题，尤其结合「Junie AI 辅助迁移」这个新角度，会吸引对 AI 辅助开发感兴趣的读者。可以把这篇 Medium 文章的核心经验整理成一篇中文科普，配上架构图，是一篇做起来不复杂但价值高的原创内容。</p>
+  `
+}
+
 }; // end DB
 
 // ─────────────────────────────────────────
