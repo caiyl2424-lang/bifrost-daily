@@ -1853,6 +1853,137 @@ const DB = {
   `
 }
 
+,"2026-04-20": {
+  alerts: [
+    {level:"warn", text:"⚠️ 本期为间隔更新版，覆盖 4/12–4/20 区间重要动态，链接来源于搜索引擎结果，已统一标记 exact:false。"}
+  ],
+  discussions: [
+    {
+      src:"github", srcLabel:"GitHub",
+      author:"JetBrains · Kotlin 2.3.20 正式发布",
+      body:"Kotlin 2.3.20（3 月中旬）正式发布，主要更新：支持 Gradle 9.3.0；Maven 项目配置大幅简化，源码根和标准库自动配置不再需要手动声明；引入「按名称解构声明」实验性特性（name-based destructuring），告别 componentN() 位置绑定；Lombok 插件升至 Alpha；Kotlin/Native 新增 C / Objective-C 库互操作模式。GitHub CodeQL 已同步支持 2.3.20。",
+      link:"https://blog.jetbrains.com/kotlin/2026/03/kotlin-2-3-20-released/",
+      linkLabel:"查看发布公告 →", exact:true
+    },
+    {
+      src:"github", srcLabel:"GitHub",
+      author:"JetBrains · Compose Multiplatform GitHub Release",
+      body:"CMP GitHub Release 页近期合并多个 iOS 修复 PR：修复模态视图控制器中滚动内容的滚动问题；修复启用 usingNativeTextInput 时三击空文本框崩溃；tvOS Siri Remote 按钮事件支持（Select/Menu/Play-Pause）；parallelRendering 标志现默认开启；Kotlin/JS 和 Kotlin/Wasm 需要 Kotlin 2.3.20 或更高版本。",
+      link:"https://github.com/JetBrains/compose-multiplatform/releases",
+      linkLabel:"查看 Release →", exact:true
+    },
+    {
+      src:"github", srcLabel:"GitHub",
+      author:"Kotlin Foundation · GSoC 2026",
+      body:"Kotlin Foundation 正式加入 Google Summer of Code 2026，公布多个开源项目方向：① 新编译器模糊测试工具 Kai（从零重建，解决旧版废弃问题）；② Swift-to-Kotlin/Native 互操作 PoC（无需 Objective-C 中转直接桥接 Swift API）；③ Kotlin/Wasm 尾调用优化；④ 去年 GSoC 成果之一为 Firebase AI 的 KMP 支持。应届学生和合格贡献者均可申请。",
+      link:"https://kotlinlang.org/docs/gsoc-2026.html",
+      linkLabel:"查看项目列表 →", exact:true
+    },
+    {
+      src:"weixin", srcLabel:"微信公众号",
+      author:"鸿蒙开发者社区 · RNOH 2026 路线",
+      body:"React Native 鸿蒙版（RNOH）2026 年路线公布：全年计划适配上游 6 个主要版本中的 4 个，按季度推进。核心风险：RN 上游 2026 年版本变动较大，适配成本和风险明显上升；三方包社区的跟进节奏弱于 Flutter-OH；鸿蒙的权限模型、沙箱路径、渲染机制与 Android 差异大，需额外兼容工作。作者坦言「很多项目用 RN 是一个版本到死，除非上架被拒才会升」。",
+      link:"https://harmonyosdev.csdn.net/69c4e12b0a2f6a37c59ac189.html",
+      linkLabel:"阅读原文 →", exact:true
+    },
+    {
+      src:"medium", srcLabel:"Medium",
+      author:"Medium · CMP 生产模板研究",
+      body:"「2026 CMP 生产模板真正缺什么」获大量收藏：JetBrains 官方 compose-multiplatform-template 和 KMP Wizard 只提供 Hello World 级别脚手架，缺少认证（Sign in with Apple + Google）、支付（IAP/Stripe）、推送通知（FCM/APNs）、CI/CD 流程和导航架构。作者估计这些基础设施从零搭建需要 15-20 小时，是「从模板到生产」最耗时的部分。",
+      link:"https://www.kmpship.app/blog/compose-multiplatform-template-2026",
+      linkLabel:"阅读原文 →", exact:true
+    },
+    {
+      src:"juejin", srcLabel:"掘金",
+      author:"KotlinConf 2026 · Golden Kodee 奖",
+      body:"KotlinConf 2026 倒计时 30 天：Golden Kodee 社区奖入围名单将于本月公布，获奖者将在 5/21-22 现场揭晓，差旅费全覆盖。GSoC 2026 Kotlin 方向申请窗口已开启。KotlinConf'26 Day 2 主旨演讲嘉宾 Lena Reinhard 已分享关于 AI、领导力和技术不确定性的预告观点。",
+      link:"https://blog.jetbrains.com/kotlin/2026/02/kodees-kotlin-roundup-kotlinconf-26-updates-new-releases-and-more/",
+      linkLabel:"查看公告 →", exact:true
+    }
+  ],
+  articles: [
+    {
+      tag:"kmp", tagLabel:"KMP",
+      ctype:"official", ctypeLabel:"版本发布",
+      rel:5, flag:"🔥",
+      title:"Kotlin 2.3.20 正式发布：按名称解构 + Gradle 9.3 支持 + Maven 配置大幅简化",
+      summary:"3 月中旬发布的 Kotlin 2.3.20 是 2.3.x 系列首个工具链重点更新版本。核心变化：Maven 项目首次支持源码根和标准库自动配置，大量减少 POM 样板；引入实验性「按名称解构声明」（name-based destructuring），可直接用属性名匹配解构变量而非依赖 componentN() 位置；Kotlin/Native 新增 C/Objective-C 互操作模式；Lombok 插件升 Alpha。KMP 项目建议升级以获取 Gradle 9.3 兼容性。",
+      source:"JetBrains Kotlin Blog",
+      date:"2026-03",
+      url:"https://blog.jetbrains.com/kotlin/2026/03/kotlin-2-3-20-released/",
+      exact:true
+    },
+    {
+      tag:"kmp", tagLabel:"KMP",
+      ctype:"official", ctypeLabel:"生态项目",
+      rel:4, flag:null,
+      title:"GSoC 2026 Kotlin 方向：Swift-to-Kotlin 互操作 PoC + 全新编译器模糊测试工具 Kai",
+      summary:"Kotlin Foundation 加入 GSoC 2026，公布的项目方向直接触及 KMP 的核心痛点：① 「Swift-to-Kotlin/Native 互操作」PoC——在现有 Swift-Java 桥接基础上添加 Kotlin/Native 作为运行时目标，实现 Swift API 无需 Objective-C 中转直接导入 Kotlin；② 新编译器模糊测试工具 Kai，解决旧版废弃问题，目标持续发现深层编译器 Bug。去年 GSoC 成果 Firebase AI KMP 支持已在生产中使用。",
+      source:"kotlinlang.org / JetBrains Kotlin Blog",
+      date:"2026-03",
+      url:"https://kotlinlang.org/docs/gsoc-2026.html",
+      exact:true
+    },
+    {
+      tag:"rn", tagLabel:"React Native",
+      ctype:"official", ctypeLabel:"路线规划",
+      rel:4, flag:"⚠️",
+      title:"RNOH 2026 鸿蒙适配路线：4 个版本目标 + 三大风险坦白",
+      summary:"React Native 鸿蒙适配版（RNOH）正式公布 2026 全年路线：聚焦上游 RN 6 个主要版本中的 4 个（0.86.x / 0.87.x / 0.88.x + 1 个），按季度推进。作者坦承三大风险：上游 RN 版本变动大、鸿蒙与 Android 在权限/路径/渲染机制差异导致额外兼容工作、三方包社区跟进节奏弱。结合华为已加入 React 基金会这一背景，RNOH 未来是否会获得更多官方资源值得观察。",
+      source:"鸿蒙开发者社区 (CSDN)",
+      date:"2026-03",
+      url:"https://harmonyosdev.csdn.net/69c4e12b0a2f6a37c59ac189.html",
+      exact:true
+    },
+    {
+      tag:"cmp", tagLabel:"CMP",
+      ctype:"analysis", ctypeLabel:"实战经验",
+      rel:5, flag:null,
+      title:"CMP 生产模板的真实缺口：官方脚手架距生产还差 15-20 小时基础设施",
+      summary:"针对「CMP 模板够用吗」的深度回答：JetBrains 官方模板和 KMP Wizard 只到 Hello World 级别，真正生产级 App 需要补全认证（Sign in with Apple 是 iOS 必须项）、IAP 支付、FCM/APNs 推送、导航架构和 CI/CD 流水线。作者估计这些基础设施从零搭建约 15-20 小时。对 Bifrost 来说，这个「从模板到生产的缺口」是一个真实的开发者需求点，值得思考如何在工具链层面填补。",
+      source:"KMPShip Blog",
+      date:"2026-04",
+      url:"https://www.kmpship.app/blog/compose-multiplatform-template-2026",
+      exact:true
+    },
+    {
+      tag:"harmony", tagLabel:"HarmonyOS",
+      ctype:"trend", ctypeLabel:"行业趋势",
+      rel:5, flag:null,
+      title:"鸿蒙非原生应用 2026 年起或遭限流：Flutter/RN 跨平台 App 的生死抉择",
+      summary:"多篇社区文章汇聚同一信号：华为应用市场已明确，2026 年起非鸿蒙原生应用可能面临限流或拒审。Flutter 包在低端鸿蒙设备冷启动可达 3 秒以上，体积偏大是实际痛点。对开发者的实际影响：跨平台框架的「鸿蒙生态融入度」已成为选型核心指标，超越了代码复用率。这是目前中文社区讨论最热的话题之一，关注度和焦虑感都在上升。",
+      source:"人工智能6S服务平台 / 开源鸿蒙跨平台社区",
+      date:"2026-03",
+      url:"https://ai6s.net/69b3d1290a2f6a37c597047a.html",
+      exact:true
+    },
+    {
+      tag:"kmp", tagLabel:"KMP",
+      ctype:"official", ctypeLabel:"大会预告",
+      rel:4, flag:null,
+      title:"KotlinConf 2026 倒计时 30 天：Golden Kodee 奖入围名单本月公布",
+      summary:"KotlinConf 2026（5/20-22，慕尼黑）进入最后冲刺阶段。本月即将公布 Golden Kodee 社区奖入围名单（获奖差旅全覆盖），Day 2 主旨演讲嘉宾 Lena Reinhard 将分享 AI 时代的领导力与不确定性。GSoC 2026 Kotlin 方向申请同步开启。KMP 相关 Workshop（CMP 共享 UI / KMP 进阶 / Koog AI Agent）均为小组限额，建议提前报名。",
+      source:"JetBrains Kotlin Blog",
+      date:"2026-02",
+      url:"https://blog.jetbrains.com/kotlin/2026/02/kodees-kotlin-roundup-kotlinconf-26-updates-new-releases-and-more/",
+      exact:true
+    }
+  ],
+  analysis: `
+<p>今天是 4 月 20 日，距上次更新（4/11）间隔了 9 天，有几条值得单独说清楚的新进展。</p>
+
+<p><strong>① Kotlin 2.3.20 是一个值得升级的版本，但不是革命性的。</strong> Maven 自动配置简化了后端/全栈场景的接入；name-based destructuring 是语言层面的小糖，让解构更可读；Gradle 9.3 兼容是 KMP 项目必须的工程保障。对正在用 KMP 做项目的开发者，这个版本的升级优先级是「有空就升，不升不会出问题」。</p>
+
+<p><strong>② GSoC 2026 的 Swift-to-Kotlin/Native 互操作项目，如果成功将是里程碑级的。</strong> 当前 KMP 调用 Swift API 必须经过 Objective-C 中转，这是 iOS 开发者用 KMP 最不顺手的地方之一。如果这个 GSoC 项目做出可用 PoC，会显著降低 KMP 在纯 Swift 项目中的集成成本。关注进展的最佳方式是加入 Kotlin Slack 的 #swift-export 频道。</p>
+
+<p><strong>③ 「鸿蒙非原生应用限流」这个信号正在扩散，但需要冷静分辨。</strong> 目前这主要来自社区推断和博主转述，并非华为官方明确政策文件。真正确定的是：HarmonyOS NEXT 不再兼容 APK，原生开发是最佳路径。但完全杜绝跨平台框架的可能性不大——微信自己都在用 Flutter，华为也在推动 RN-OH。对 Bifrost 的运营建议：可以用这个话题做引流内容，但分析时要区分「官方政策」和「社区预判」。</p>
+
+<p><strong>④ CMP 模板的生产缺口是一个真实的产品机会。</strong> 「从 Hello World 到生产还需要 15-20 小时」这个结论，描述的正是 Bifrost 作为跨平台基础设施平台可以切入的场景。如果 Bifrost 能提供开箱即用的认证、推送、支付等模块，就是在填这个缺口。这个角度可以作为 Bifrost 产品定位的一个叙事支点。</p>
+
+<p><strong>对 Bifrost 社区运营的建议：</strong> 4 月 23 日华为乾崑技术大会即将发布 ADS 5 + HarmonySpace 6，建议在 4/22 发一篇「明天看什么」的预热文章，会后再跟进总结。KotlinConf 2026 倒计时 30 天，可以提前准备一篇「KotlinConf 2026 KMP 相关 Talk 完整清单」——这类文章在大会前搜索量会明显上升。</p>
+  `
+}
+
 }; // end DB
 
 // ─────────────────────────────────────────
